@@ -93,7 +93,7 @@ const Landing = () => {
     }, [slides.length]);
 
     return (
-        <div className="text-white">
+        <div className="text-white grid w-full">
             <div className="mt-[250px] flex max-[1240px]:grid justify-between max-[1240px]:justify-center flex-row-reverse px-[200px] max-[940px]:px-[1px]">
                 <div className="flex justify-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-[#b292ff] after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
                     <Image src="/images/Me.jpg" alt="#" className=" rounded-2xl" width={300} height={300} />
@@ -133,7 +133,7 @@ const Landing = () => {
                 </div>
                 <div className="slider relative grid gap-5 mt-10">
                     <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex gap-2 mt-10">
-                        {Array.from({ length: slides.length  }).map((_, index) => (
+                        {Array.from({ length: slides.length }).map((_, index) => (
                             <div
                                 key={index}
                                 className={`h-2 rounded-full ${currentIndex === index ? 'bg-white w-8' : 'bg-gray-500 w-3'}`}
@@ -144,17 +144,95 @@ const Landing = () => {
                     </div>
                 </div>
             </div>
-            <div className="grid gap-36 bg-[url('/images/hero.svg')] bg-contain bg-fixed">
-                <div className="grid justify-center text-center gap-24 text-[100px] font-semibold mt-[200px]">
+            <div className="grid gap-36 bg-[url('/images/hero1.png')] bg-auto bg-fixed">
+                <div className="grid justify-center text-center gap-24 sm:text-[100px] text-[50px] font-semibold mt-[200px]">
                     <h1 className="bg-clip-text text-transparent bg-gradient-to-t from-[#9e7bcc] via-[#c69aff] to-[#c7aceb]">TypeScript</h1>
                     <h1 className="bg-clip-text text-transparent bg-gradient-to-t from-[#7f42cc] via-[#9e52ff] to-[#b07af7]">NextJS</h1>
                     <h1 className="bg-clip-text text-transparent bg-gradient-to-t from-[#6104d6] via-[#8303ff] to-[#8f23fa]">Coffee</h1>
                 </div>
-                <div className="flex justify-start text-start text-[#c8c8c8] text-[40px] pl-[70px]">
+                <div className="flex text-center justify-center sm:justify-start sm:text-start text-[#c8c8c8] sm:text-[40px] text-[20px] sm:pl-[70px] pl-[1px]">
                     <p>
-                    These are the <br />
-                    technologies I’ve been using
+                        These are the <br />
+                        technologies I’ve been using
                     </p>
+                </div>
+            </div>
+            <div className="grid mt-[200px] px-[200px] max-[940px]:px-[1px] w-full overflow-x-auto">
+                <div className="flex gap-20 text-white w-full">
+                    <div className="flex gap-20 w-max">
+                        <div className="px-6 py-4 rounded-3xl border border-x-[#4343438e] border-y-[#232323] grid gap-5 w-[300px]">
+                            <h1>Front-end Engineer Design</h1>
+                            <div className="flex gap-2 items-center">
+                                <div className="p-2 bg-[#272727] rounded-full">
+                                    <Image src="/images/react.svg" alt="#" className="rounded-md" width={30} height={30} />
+                                </div>
+                                <p>React</p>
+                            </div>
+                            <div className="flex gap-2 items-center">
+                                <div className="p-2 bg-[#272727] rounded-full">
+                                    <Image src="/images/next.png" alt="#" className="rounded-md" width={30} height={30} />
+                                </div>
+                                <p>Next JS</p>
+                            </div>
+                            <div className="flex gap-2 items-center">
+                                <div className="p-2 bg-[#272727] rounded-full">
+                                    <Image src="/images/js.png" alt="#" className="rounded-md" width={25} height={25} />
+                                </div>
+                                <p>JavaScript</p>
+                            </div>
+                            <div className="flex gap-2 items-center">
+                                <div className="p-2 bg-[#272727] rounded-full">
+                                    <Image src="/images/tailwind.svg" alt="#" className="rounded-md" width={30} height={30} />
+                                </div>
+                                <p>Tailwind</p>
+                            </div>
+                        </div>
+                        <div className="px-6 py-4 rounded-3xl border border-x-[#4343438e] border-y-[#232323] grid gap-2 h-[200px] w-[300px]">
+                            <h1>Languages</h1>
+                            <div className="flex gap-2 items-center">
+                                <div className="p-2 bg-[#272727] rounded-full">
+                                    <Image src="/images/js.png" alt="#" className="rounded-md" width={25} height={25} />
+                                </div>
+                                <p>JavaScript</p>
+                            </div>
+                            <div className="flex gap-2 items-center">
+                                <div className="p-2 bg-[#272727] rounded-full">
+                                    <Image src="/images/typeScript.svg" alt="#" className="rounded-md" width={30} height={30} />
+                                </div>
+                                <p>TypeScript</p>
+                            </div>
+                        </div>
+                        <div className="px-6 py-4 rounded-3xl border border-x-[#4343438e] border-y-[#232323] grid gap-3 h-[250px] w-[300px]">
+                            <h1>Dev-Ops</h1>
+                            <div className="flex gap-2 items-center">
+                                <div className="p-2 bg-[#272727] rounded-full">
+                                    <Image src="/images/js.png" alt="#" className="rounded-md" width={25} height={25} />
+                                </div>
+                                <p>JavaScript</p>
+                            </div>
+                            <div className="flex gap-2 items-center">
+                                <div className="p-2 bg-[#272727] rounded-full">
+                                    <Image src="/images/typeScript.svg" alt="#" className="rounded-md" width={30} height={30} />
+                                </div>
+                                <p>TypeScript</p>
+                            </div>
+                            <div className="flex gap-2 items-center">
+                                <div className="p-2 bg-[#272727] rounded-full">
+                                    <Image src="/images/typeScript.svg" alt="#" className="rounded-md" width={30} height={30} />
+                                </div>
+                                <p>TypeScript</p>
+                            </div>
+                        </div>
+                        <div className="px-6 py-4 rounded-3xl border border-x-[#4343438e] border-y-[#232323] grid gap-2 h-[150px] w-[300px]">
+                            <h1>Back End</h1>
+                            <div className="flex gap-2 items-center">
+                                <div className="p-2 bg-[#272727] rounded-full">
+                                    <Image src="/images/typeScript.svg" alt="#" className="rounded-md" width={30} height={30} />
+                                </div>
+                                <p>TypeScript</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

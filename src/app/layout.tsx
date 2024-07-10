@@ -21,7 +21,7 @@ export default function RootLayout({
         <meta name="description" content="Mostapha Taha" />
         <link rel="icon" type="image/x-icon" href="/images/Stockfish.jpg" />
       </head>
-      <body className="bg-[#0c0c0d]">
+      <body className="bg-[#0c0c0d] selection:text-black selection:bg-[#7feaff]">
         
         <NavBar/>
         {children}
