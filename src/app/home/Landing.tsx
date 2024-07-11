@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 
-const Landing = () => {    
+const Landing = () => {
     const [showButton, setShowButton] = useState(false);
     const controls = useAnimation();
 
@@ -19,7 +19,6 @@ const Landing = () => {
 
         window.addEventListener('scroll', handleScroll);
 
-        // Clean up the event listener on component unmount
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
@@ -137,7 +136,7 @@ const Landing = () => {
             )}
             <div className="mt-[250px] flex max-[1240px]:grid justify-between max-[1240px]:justify-center flex-row-reverse px-[200px] max-[940px]:px-[1px]">
                 <div className="flex justify-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-[#b292ff] after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-                    <Image src="/images/Me.jpg" alt="#" className=" rounded-2xl h-[320px] w-[250px] max-[1332px]:h-[300px] max-[1332px]:w-[220px] " width={240} height={10} />
+                    <Image src="/images/Mostapha.jpg" alt="#" className=" rounded-2xl h-[320px] w-[250px] max-[1332px]:h-[300px] max-[1332px]:w-[220px] " width={240} height={10} />
                 </div>
                 <div className="grid gap-10 max-[1240px]:justify-center max-[1240px]:text-center">
                     <motion.h1 className="text-[52px] max-[575px]:text-[40px]" initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 1, delay: 0.5 } }}>
@@ -214,115 +213,115 @@ const Landing = () => {
                     </p>
                 </div>
             </motion.div>
-            <motion.div className="grid mt-[200px] px-[200px] max-[940px]:px-[1px] w-full overflow-x-auto" initial={{ opacity: 0, x:-200 }} animate={{ opacity: 1, x:0, transition: { duration: 1, delay: 3 } }}>
+            <motion.div className="grid mt-[200px] px-[200px] max-[940px]:px-[1px] w-full overflow-x-auto" initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 1, delay: 3 } }}>
                 <div className="flex gap-20 text-white w-full">
                     <div className="flex gap-20 w-max">
                         <div className="px-6 py-4 rounded-3xl border border-x-[#4343438e] border-y-[#232323] grid gap-5 w-[300px]">
                             <h1>Front-end Engineer Design</h1>
-                            <div className="flex gap-2 items-center">
+                            <motion.div className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.27, delay: 4 } }}>
                                 <div className="p-2 bg-[#272727] rounded-full">
                                     <Image src="/images/react.svg" alt="#" className="rounded-md" width={30} height={30} />
                                 </div>
                                 <p>React</p>
-                            </div>
-                            <div className="flex gap-2 items-center">
+                            </motion.div>
+                            <motion.div className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.27, delay: 4.2 } }}>
                                 <div className="p-2 bg-[#272727] rounded-full">
                                     <Image src="/images/next.png" alt="#" className="rounded-md" width={30} height={30} />
                                 </div>
                                 <p>Next JS</p>
-                            </div>
-                            <div className="flex gap-2 items-center">
+                            </motion.div>
+                            <motion.div className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.27, delay: 4.4 } }}>
                                 <div className="p-2 bg-[#272727] rounded-full">
                                     <Image src="/images/vite.svg" alt="#" className="rounded-md" width={25} height={25} />
                                 </div>
                                 <p>Vite</p>
-                            </div>
-                            <div className="flex gap-2 items-center">
+                            </motion.div>
+                            <motion.div className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.27, delay: 4.6 } }}>
                                 <div className="p-2 bg-[#272727] rounded-full">
                                     <Image src="/images/jest.png" alt="#" className="rounded-md" width={25} height={25} />
                                 </div>
                                 <p>Jest</p>
-                            </div >                           <div className="flex gap-2 items-center">
+                            </motion.div >                           <motion.div className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.27, delay: 4.8 } }}>
                                 <div className="p-2 bg-[#272727] rounded-full">
                                     <Image src="/images/bun.png" alt="#" className="rounded-md" width={25} height={25} />
                                 </div>
                                 <p>Bun</p>
-                            </div>
-                            <div className="flex gap-2 items-center">
+                            </motion.div>
+                            <motion.div className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.27, delay: 5 } }}>
                                 <div className="p-2 bg-[#272727] rounded-full">
                                     <Image src="/images/tailwind.svg" alt="#" className="rounded-md" width={30} height={30} />
                                 </div>
                                 <p>Tailwind</p>
-                            </div>
-                            <div className="flex gap-2 items-center">
+                            </motion.div>
+                            <motion.div className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.27, delay: 5.2 } }}>
                                 <div className="p-2 h-[45px] w-[45px] flex items-center justify-center bg-[#272727] rounded-full">
                                     <Image src="/images/figma.svg" alt="#" className="rounded-md" width={20} height={10} />
                                 </div>
                                 <p>Figma</p>
-                            </div>
+                            </motion.div>
                         </div>
                         <div className="px-6 py-4 rounded-3xl border border-x-[#4343438e] border-y-[#232323] grid gap-2 h-[150px] w-[300px]">
                             <h1>Dev-Ops</h1>
-                            <div className="flex gap-2 items-center">
+                            <motion.div className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.27, delay: 4 } }}>
                                 <div className="p-2 w-[45px] h-[45px] flex items-center justify-center bg-[#272727] rounded-full">
                                     <Image src="/images/docker.png" alt="#" className="rounded-md" width={25} height={25} />
                                 </div>
                                 <p>Docker</p>
-                            </div>
+                            </motion.div>
                         </div>
                         <div className="px-6 py-4 rounded-3xl border border-x-[#4343438e] border-y-[#232323] grid gap-3 h-[300px] w-[300px]">
                             <h1>Languages</h1>
-                            <div className="flex gap-2 items-center">
+                            <motion.div className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.27, delay: 4 } }}>
                                 <div className="p-2 bg-[#272727] rounded-full">
                                     <Image src="/images/js.png" alt="#" className="rounded-md" width={25} height={25} />
                                 </div>
                                 <p>JavaScript</p>
-                            </div>
-                            <div className="flex gap-2 items-center">
+                            </motion.div>
+                            <motion.div className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.27, delay: 4.2 } }}>
                                 <div className="p-2 bg-[#272727] rounded-full">
                                     <Image src="/images/typescript.svg" alt="#" className="rounded-md" width={30} height={30} />
                                 </div>
                                 <p>TypeScript</p>
-                            </div>
-                            <div className="flex gap-2 items-center">
+                            </motion.div>
+                            <motion.div className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.27, delay: 4.4 } }}>
                                 <div className="p-2 bg-[#272727] rounded-full">
                                     <Image src="/images/cpp.svg" alt="#" className="rounded-md" width={30} height={30} />
                                 </div>
                                 <p>C++</p>
-                            </div>
-                            <div className="flex gap-2 items-center">
+                            </motion.div>
+                            <motion.div className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.27, delay: 4.6 } }}>
                                 <div className="p-2 bg-[#272727] rounded-full">
                                     <Image src="/images/py.svg" alt="#" className="rounded-md" width={30} height={30} />
                                 </div>
                                 <p>Python</p>
-                            </div>
+                            </motion.div>
                         </div>
                         <div className="px-6 py-4 rounded-3xl border border-x-[#4343438e] border-y-[#232323] grid gap-3 h-[300px] w-[300px]">
                             <h1>Back End</h1>
-                            <div className="flex gap-2 items-center">
+                            <motion.div className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.27, delay: 4 } }}>
                                 <div className="p-2 bg-[#272727] rounded-full">
                                     <Image src="/images/node.svg" alt="#" className="rounded-md" width={30} height={30} />
                                 </div>
                                 <p>NodeJS</p>
-                            </div>
-                            <div className="flex gap-2 items-center">
+                            </motion.div>
+                            <motion.div className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.27, delay: 4.2 } }}>
                                 <div className="p-2 bg-[#272727] rounded-full">
                                     <Image src="/images/nest.png" alt="#" className="rounded-md" width={30} height={30} />
                                 </div>
                                 <p>Nest</p>
-                            </div>
-                            <div className="flex gap-2 items-center">
+                            </motion.div>
+                            <motion.div className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.27, delay: 4.4 } }}>
                                 <div className="p-2 bg-[#272727] rounded-full">
                                     <Image src="/images/ex.png" alt="#" className="rounded-md" width={30} height={30} />
                                 </div>
                                 <p>Express</p>
-                            </div>
-                            <div className="flex gap-2 items-center">
+                            </motion.div>
+                            <motion.div className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.27, delay: 4.6 } }}>
                                 <div className="p-2 bg-[#272727] rounded-full">
                                     <Image src="/images/mongo.svg" alt="#" className="rounded-md" width={30} height={30} />
                                 </div>
                                 <p>MongoDB</p>
-                            </div>
+                            </motion.div>
                         </div>
                     </div>
                 </div>
