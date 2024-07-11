@@ -188,6 +188,12 @@ const Landing = () => {
                             </div>
                             <div className="flex gap-2 items-center">
                                 <div className="p-2 bg-[#272727] rounded-full">
+                                    <Image src="/images/bun.png" alt="#" className="rounded-md" width={25} height={25} />
+                                </div>
+                                <p>Bun</p>
+                            </div>
+                            <div className="flex gap-2 items-center">
+                                <div className="p-2 bg-[#272727] rounded-full">
                                     <Image src="/images/tailwind.svg" alt="#" className="rounded-md" width={30} height={30} />
                                 </div>
                                 <p>Tailwind</p>
@@ -202,8 +208,8 @@ const Landing = () => {
                         <div className="px-6 py-4 rounded-3xl border border-x-[#4343438e] border-y-[#232323] grid gap-2 h-[150px] w-[300px]">
                             <h1>Dev-Ops</h1>
                             <div className="flex gap-2 items-center">
-                                <div className="p-2 bg-[#272727] rounded-full">
-                                    <Image src="/images/js.png" alt="#" className="rounded-md" width={25} height={25} />
+                                <div className="p-2 w-[45px] h-[45px] flex items-center justify-center bg-[#272727] rounded-full">
+                                    <Image src="/images/docker.png" alt="#" className="rounded-md" width={25} height={25} />
                                 </div>
                                 <p>Docker</p>
                             </div>
@@ -218,19 +224,19 @@ const Landing = () => {
                             </div>
                             <div className="flex gap-2 items-center">
                                 <div className="p-2 bg-[#272727] rounded-full">
-                                    <Image src="/images/typeScript.svg" alt="#" className="rounded-md" width={30} height={30} />
+                                    <Image src="/images/typescript.svg" alt="#" className="rounded-md" width={30} height={30} />
                                 </div>
                                 <p>TypeScript</p>
                             </div>
                             <div className="flex gap-2 items-center">
                                 <div className="p-2 bg-[#272727] rounded-full">
-                                    <Image src="/images/typeScript.svg" alt="#" className="rounded-md" width={30} height={30} />
+                                    <Image src="/images/cpp.svg" alt="#" className="rounded-md" width={30} height={30} />
                                 </div>
                                 <p>C++</p>
                             </div>
                             <div className="flex gap-2 items-center">
                                 <div className="p-2 bg-[#272727] rounded-full">
-                                    <Image src="/images/typeScript.svg" alt="#" className="rounded-md" width={30} height={30} />
+                                    <Image src="/images/py.svg" alt="#" className="rounded-md" width={30} height={30} />
                                 </div>
                                 <p>Python</p>
                             </div>
@@ -239,25 +245,25 @@ const Landing = () => {
                             <h1>Back End</h1>
                             <div className="flex gap-2 items-center">
                                 <div className="p-2 bg-[#272727] rounded-full">
-                                    <Image src="/images/typeScript.svg" alt="#" className="rounded-md" width={30} height={30} />
+                                    <Image src="/images/node.svg" alt="#" className="rounded-md" width={30} height={30} />
                                 </div>
                                 <p>NodeJS</p>
                             </div>
                             <div className="flex gap-2 items-center">
                                 <div className="p-2 bg-[#272727] rounded-full">
-                                    <Image src="/images/typeScript.svg" alt="#" className="rounded-md" width={30} height={30} />
+                                    <Image src="/images/nest.png" alt="#" className="rounded-md" width={30} height={30} />
                                 </div>
                                 <p>Nest</p>
                             </div>
                             <div className="flex gap-2 items-center">
                                 <div className="p-2 bg-[#272727] rounded-full">
-                                    <Image src="/images/typeScript.svg" alt="#" className="rounded-md" width={30} height={30} />
+                                    <Image src="/images/ex.png" alt="#" className="rounded-md" width={30} height={30} />
                                 </div>
                                 <p>Express</p>
                             </div>
                             <div className="flex gap-2 items-center">
                                 <div className="p-2 bg-[#272727] rounded-full">
-                                    <Image src="/images/typeScript.svg" alt="#" className="rounded-md" width={30} height={30} />
+                                    <Image src="/images/mongo.svg" alt="#" className="rounded-md" width={30} height={30} />
                                 </div>
                                 <p>MongoDB</p>
                             </div>
