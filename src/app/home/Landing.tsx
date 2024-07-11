@@ -2,9 +2,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
 
-const Landing = () => {
+const Landing = () => {    
     const [showButton, setShowButton] = useState(false);
+    const controls = useAnimation();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -114,39 +116,50 @@ const Landing = () => {
         };
     }, [slides.length]);
 
-    return (
-        <div className="text-white grid w-full">
-            {
+    useEffect(() => {
+        controls.start({ opacity: 1, y: 0, transition: { duration: 1 } });
+    }, [controls]);
 
-                showButton && (
-                    <button
-                        onClick={handleClick}
-                        className="fixed top-6 right-6 bg-white p-1 rounded-full z-50"
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" style={{ fill: '#000000' }}><path d="m12 6.879-7.061 7.06 2.122 2.122L12 11.121l4.939 4.94 2.122-2.122z"></path></svg>
-                             
-                    </button>
-                )
-            }
+    return (
+        <motion.div className="text-white grid w-full" initial={{ opacity: 0, y: 20 }} animate={controls}>
+            {showButton && (
+                <motion.button
+                    onClick={handleClick}
+                    className="fixed top-6 right-6 bg-white p-1 rounded-full z-50"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1, transition: { duration: 0.5 } }}
+                    whileHover={{ scale: 1.1 }}
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" style={{ fill: '#000000' }}>
+                        <path d="m12 6.879-7.061 7.06 2.122 2.122L12 11.121l4.939 4.94 2.122-2.122z"></path>
+                    </svg>
+                </motion.button>
+            )}
             <div className="mt-[250px] flex max-[1240px]:grid justify-between max-[1240px]:justify-center flex-row-reverse px-[200px] max-[940px]:px-[1px]">
                 <div className="flex justify-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-[#b292ff] after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
                     <Image src="/images/Me.jpg" alt="#" className=" rounded-2xl h-[320px] w-[250px] max-[1332px]:h-[300px] max-[1332px]:w-[220px] " width={240} height={10} />
                 </div>
                 <div className="grid gap-10 max-[1240px]:justify-center max-[1240px]:text-center">
-                    <h1 className="text-[52px] max-[575px]:text-[40px] ">Hi, I’m Mostapha</h1>
-                    <p className="text-[#6e6e6e] text-[24px] max-[690px]:text-[20px] max-[575px]:text-[14px] px-4">During these <span className="text-white font-semibold">4 years </span> as <span className="text-white font-semibold">Front-End Software Engineer</span> . My <br /> role has extended beyond coding to effective <br /> communication with various departments, to define new <br /> features and spearheading the development of new apps.</p>
-                    <div className="flex items-center max-[1240px]:justify-center flex-wrap gap-8 text-[18px]">
-                        <a href="https://flowcv.com/resume/tuqcpijwb6" target="_blank" className="px-3.5 py-2 bg-white rounded-2xl text-black font-semibold hover:-translate-y-1 hover:scale-110 duration-200">Download CV</a>
+                    <motion.h1 className="text-[52px] max-[575px]:text-[40px]" initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 1, delay: 0.5 } }}>
+                        Hi, I’m Mostapha
+                    </motion.h1>
+                    <motion.p className="text-[#6e6e6e] text-[24px] max-[690px]:text-[20px] max-[575px]:text-[14px] px-4" initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 1, delay: 1 } }}>
+                        During these <span className="text-white font-semibold">4 years </span> as <span className="text-white font-semibold">Front-End Software Engineer</span>. My <br /> role has extended beyond coding to effective <br /> communication with various departments, to define new <br /> features and spearheading the development of new apps.
+                    </motion.p>
+                    <motion.div className="flex items-center max-[1240px]:justify-center flex-wrap gap-8 text-[18px]" initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 1, delay: 1.5 } }}>
+                        <a href="https://flowcv.com/resume/tuqcpijwb6" target="_blank" className="px-3.5 py-2 bg-white rounded-2xl text-black font-semibold hover:-translate-y-1 hover:scale-110 duration-200">
+                            Download CV
+                        </a>
                         <Link href="/experience" className="hover:text-[#b292ff]">See Experience</Link>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
             <div className="grid">
                 <div className="flex px-[200px] max-[812px]:grid max-[940px]:px-[1px] mt-[200px] justify-between gap-20 overflow-hidden">
-                    <div className="pl-7 flex justify-center items-center max-[812px]:text-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[140px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-[#e6dff7] after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-[#ffffff] before:dark:opacity-10 after:dark:from-[#ffffff] after:dark:via-[#ffffff6e] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
+                    <motion.div className="pl-7 flex justify-center items-center max-[812px]:text-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[140px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-[#e6dff7] after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-[#ffffff] before:dark:opacity-10 after:dark:from-[#ffffff] after:dark:via-[#ffffff6e] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
                         <p className="text-[#6e6e6e] text-[15px]">4 Years <br /> <span className="text-white text-[50px] font-semibold">XP</span> <br /> with the most popular ecosystem frontend </p>
-                    </div>
-                    <div
+                    </motion.div>
+                    <motion.div
                         className="slider relative grid gap-5 hide-scrollbar"
                         ref={sliderRef}
                         onMouseDown={startDragging}
@@ -154,31 +167,41 @@ const Landing = () => {
                         onMouseUp={stopDragging}
                         onMouseMove={handleDragging}
                         style={{ cursor: isDragging ? 'grabbing' : 'grab', overflow: 'auto', scrollSnapType: 'x mandatory', scrollBehavior: 'smooth' }}
+                        initial={{ x: '100vw' }}
+                        animate={{ x: 0, transition: { duration: 1 } }}
                     >
                         <div className="flex gap-3" style={{ scrollSnapAlign: 'center' }}>
                             {slides.map((slide, index) => (
-                                <div key={index} className={`px-5 py-3 h-[200px] w-[300px] grid items-center gap-3 rounded-3xl`} style={{ backgroundColor: slide.bgColor }}>
+                                <motion.div
+                                    key={index}
+                                    className={`px-5 py-3 h-[200px] w-[300px] grid items-center gap-3 rounded-3xl`}
+                                    style={{ backgroundColor: slide.bgColor }}
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1, transition: { duration: 0.5, delay: index * 0.2 } }}
+                                >
                                     <Image src={slide.src} alt={slide.title} className=" rounded-md" width={50} height={50} />
                                     <p className="text-black font-semibold text-[25px]">{slide.title}</p>
-                                </div>
+                                </motion.div>
                             ))}
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
                 <div className="slider relative grid gap-5 mt-10">
                     <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex gap-2 mt-10">
                         {Array.from({ length: slides.length }).map((_, index) => (
-                            <div
+                            <motion.div
                                 key={index}
                                 className={`h-2 rounded-full ${currentIndex === index ? 'bg-white w-8' : 'bg-gray-500 w-3'}`}
                                 style={{ cursor: 'pointer' }}
                                 onClick={() => setCurrentIndex(index)}
-                            ></div>
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1, transition: { duration: 0.5, delay: index * 0.2 } }}
+                            ></motion.div>
                         ))}
                     </div>
                 </div>
             </div>
-            <div className="grid gap-36 bg-[url('/images/hero1.png')] bg-auto bg-fixed">
+            <motion.div className="grid gap-36 bg-[url('/images/hero1.png')] bg-auto bg-fixed" initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 1, delay: 2 } }}>
                 <div className="grid justify-center text-center gap-24 sm:text-[100px] text-[50px] font-semibold mt-[200px]">
                     <h1 className="bg-clip-text text-transparent bg-gradient-to-t from-[#9e7bcc] via-[#c69aff] to-[#c7aceb]">TypeScript</h1>
                     <h1 className="bg-clip-text text-transparent bg-gradient-to-t from-[#7f42cc] via-[#9e52ff] to-[#b07af7]">NextJS</h1>
@@ -190,8 +213,8 @@ const Landing = () => {
                         technologies I’ve been using
                     </p>
                 </div>
-            </div>
-            <div className="grid mt-[200px] px-[200px] max-[940px]:px-[1px] w-full overflow-x-auto">
+            </motion.div>
+            <motion.div className="grid mt-[200px] px-[200px] max-[940px]:px-[1px] w-full overflow-x-auto" initial={{ opacity: 0, x:-200 }} animate={{ opacity: 1, x:0, transition: { duration: 1, delay: 3 } }}>
                 <div className="flex gap-20 text-white w-full">
                     <div className="flex gap-20 w-max">
                         <div className="px-6 py-4 rounded-3xl border border-x-[#4343438e] border-y-[#232323] grid gap-5 w-[300px]">
@@ -219,8 +242,7 @@ const Landing = () => {
                                     <Image src="/images/jest.png" alt="#" className="rounded-md" width={25} height={25} />
                                 </div>
                                 <p>Jest</p>
-                            </div>
-                            <div className="flex gap-2 items-center">
+                            </div >                           <div className="flex gap-2 items-center">
                                 <div className="p-2 bg-[#272727] rounded-full">
                                     <Image src="/images/bun.png" alt="#" className="rounded-md" width={25} height={25} />
                                 </div>
@@ -304,8 +326,8 @@ const Landing = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </motion.div>
+        </motion.div>
     );
 }
 
