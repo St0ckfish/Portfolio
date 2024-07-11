@@ -1,4 +1,5 @@
 const Footer = () => {
+    const year = new Date().getFullYear();
     return (
         <>
             <div className="mt-[100px] w-full flex justify-center items-center lg:px-[120px] lg:py-[60px] sm:py-[60px] sm:px-[20px]">
@@ -20,8 +21,8 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="lg:px-[160px] pb-[30px] sm:px-[80px] text-white">
-                    <p>vigads © 2024</p>
+            <div className="lg:px-[160px] pb-[30px] sm:px-[80px] ml-5 mt-2 text-white">
+                    <p>Stockfish © {year}</p>
             </div>
         </>
     );

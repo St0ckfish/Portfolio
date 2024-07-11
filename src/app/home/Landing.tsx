@@ -4,6 +4,28 @@ import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 
 const Landing = () => {
+    const [showButton, setShowButton] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 500) {
+                setShowButton(true);
+            } else {
+                setShowButton(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        // Clean up the event listener on component unmount
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+    const handleClick = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isDragging, setIsDragging] = useState(false);
     const [startX, setStartX] = useState(0);
@@ -94,15 +116,27 @@ const Landing = () => {
 
     return (
         <div className="text-white grid w-full">
+            {
+
+                showButton && (
+                    <button
+                        onClick={handleClick}
+                        className="fixed top-6 right-6 bg-white p-1 rounded-full z-50"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" style={{ fill: '#000000' }}><path d="m12 6.879-7.061 7.06 2.122 2.122L12 11.121l4.939 4.94 2.122-2.122z"></path></svg>
+                             
+                    </button>
+                )
+            }
             <div className="mt-[250px] flex max-[1240px]:grid justify-between max-[1240px]:justify-center flex-row-reverse px-[200px] max-[940px]:px-[1px]">
                 <div className="flex justify-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-[#b292ff] after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-                    <Image src="/images/Me.jpg" alt="#" className=" rounded-2xl" width={300} height={300} />
+                    <Image src="/images/Me.jpg" alt="#" className=" rounded-2xl h-[320px] w-[250px] max-[1332px]:h-[300px] max-[1332px]:w-[220px] " width={240} height={10} />
                 </div>
                 <div className="grid gap-10 max-[1240px]:justify-center max-[1240px]:text-center">
-                    <h1 className="text-[52px] max-[575px]:text-[42px] ">Hi, I’m Mostapha</h1>
-                    <p className="text-[#6e6e6e] text-[24px] max-[690px]:text-[20px] max-[575px]:text-[15px]">During these <span className="text-white font-semibold">4 years </span> as <span className="text-white font-semibold">Front-End Software Engineer</span> . My <br /> role has extended beyond coding to effective <br /> communication with various departments, to define new <br /> features and spearheading the development of new apps.</p>
+                    <h1 className="text-[52px] max-[575px]:text-[40px] ">Hi, I’m Mostapha</h1>
+                    <p className="text-[#6e6e6e] text-[24px] max-[690px]:text-[20px] max-[575px]:text-[14px] px-4">During these <span className="text-white font-semibold">4 years </span> as <span className="text-white font-semibold">Front-End Software Engineer</span> . My <br /> role has extended beyond coding to effective <br /> communication with various departments, to define new <br /> features and spearheading the development of new apps.</p>
                     <div className="flex items-center max-[1240px]:justify-center flex-wrap gap-8 text-[18px]">
-                        <a href="Mostafa-CV.pdf" download='Mostafa-CV.pdf' className="px-3.5 py-2 bg-white rounded-2xl text-black font-semibold hover:-translate-y-1 hover:scale-110 duration-200">Download CV</a>
+                        <a href="https://flowcv.com/resume/tuqcpijwb6" target="_blank" className="px-3.5 py-2 bg-white rounded-2xl text-black font-semibold hover:-translate-y-1 hover:scale-110 duration-200">Download CV</a>
                         <Link href="/experience" className="hover:text-[#b292ff]">See Experience</Link>
                     </div>
                 </div>
