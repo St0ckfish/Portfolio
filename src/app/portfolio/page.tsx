@@ -37,6 +37,7 @@ const Portfolio = () => {
                         </Link>
                     </div>
                 </div>
+                
 
             </div>
             <div className="w-full flex text-center justify-center sm:justify-start sm:text-start text-[#c8c8c8] sm:text-[40px] text-[20px] sm:pl-[70px] pl-[1px] mt-[20px]">
@@ -44,8 +45,8 @@ const Portfolio = () => {
                     These are the Work Experience
                 </p>
             </div>
-            <div className="grid gap-4 px-[150px] max-[940px]:px-[30px] mt-[70px] bg-[url('/images/hero1.png')] bg-auto bg-fixed ">
-                <div className="px-12 py-5 rounded-2xl bg-[#131313] flex justify-between gap-4 w-full max-[1023px]:grid max-[1023px]:justify-center">
+            <div className="grid gap-4 px-[150px] max-[940px]:px-[30px] mt-[70px]  ">
+                <div className="px-12 py-5 rounded-2xl bg-[#131313] flex items-center justify-between gap-4 w-full max-[1023px]:grid max-[1023px]:justify-center">
                     <div className="grid gap-3 w-full">
                         <h1 className="font-semibold text-[25px] max-[1277px]:text-[20px]">Front-End Software Engineer</h1>
                         <p className="text-[#b292ff] text-[20px] max-[1277px]:text-[16px]">X-Tech</p>
