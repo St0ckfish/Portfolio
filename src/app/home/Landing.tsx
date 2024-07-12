@@ -226,7 +226,7 @@ const Landing = () => {
                             </motion.div>
                             <motion.div className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.27, delay: 4.2 } }}>
                                 <div className="p-2 bg-[#272727] rounded-full">
-                                    <Image src="/images/next.png" alt="#" className="rounded-md" width={30} height={30} />
+                                    <Image src="/images/nxt.png" alt="#" className="rounded-md" width={30} height={30} />
                                 </div>
                                 <p>Next JS</p>
                             </motion.div>
@@ -241,7 +241,8 @@ const Landing = () => {
                                     <Image src="/images/jest.png" alt="#" className="rounded-md" width={25} height={25} />
                                 </div>
                                 <p>Jest</p>
-                            </motion.div >                           <motion.div className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.27, delay: 4.8 } }}>
+                            </motion.div >                           
+                            <motion.div className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.27, delay: 4.8 } }}>
                                 <div className="p-2 bg-[#272727] rounded-full">
                                     <Image src="/images/bun.png" alt="#" className="rounded-md" width={25} height={25} />
                                 </div>

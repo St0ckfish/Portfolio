@@ -15,7 +15,7 @@ const NavBar = () => {
 
     const controlNavbar = () => {
         if (typeof window !== 'undefined') {
-            if (window.scrollY > 500 && window.scrollY > lastScrollY) {
+            if (window.scrollY > 400 && window.scrollY > lastScrollY) {
                 if (timerRef.current) {
                     clearTimeout(timerRef.current);
                 }
