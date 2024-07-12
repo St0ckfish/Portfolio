@@ -1,20 +1,16 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+"use client"
 import "./globals.css";
 import NavBar from "@/components/navBar";
 import Footer from "@/components/footer";
-const inter = Inter({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-  title: "Mostapha Taha",
-  description: "Mostapha Taha",
-};
+import { usePathname } from "next/navigation";
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = usePathname();
+  const isLoginPage = pathname === "/admin";
   return (
     <html lang="en">
       <head>
@@ -24,9 +20,9 @@ export default function RootLayout({
       </head>
       <body className="bg-[#0c0c0d] selection:text-black selection:bg-[#7feaff]">
         
-        <NavBar/>
+      {!isLoginPage && <NavBar />}
         {children}
-        <Footer/>
+      {!isLoginPage && <Footer />}
         </body>
     </html>
   );
