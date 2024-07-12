@@ -22,7 +22,7 @@ const Portfolio = () => {
             <div className="bg-[url('/images/hero1.png')] py-5 bg-auto bg-fixed flex flex-wrap gap-10 w-full h-full justify-center px-[200px] max-[940px]:px-[40px]">
 
                 <div className=" py-5 px-3 grid justify-center items-center rounded-2xl bg-gradient-to-t from-[#2d2833] via-[#3c2d4b] to-[#2a264e]">
-                    <Image src="/images/project.png" className="rounded-2xl w-full h-full" height={300} width={300} alt="#" />
+                    <Image src="/images/project.png" className="rounded-2xl w-full h-full" height={200} width={200} alt="#" />
                     <div className="flex justify-start text-start items-center px-2 py-4">
                         <p>Education platform</p>
                     </div>
