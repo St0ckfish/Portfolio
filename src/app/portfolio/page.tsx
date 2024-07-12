@@ -1,8 +1,8 @@
 "use client"
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useAnimation, useInView, Variants } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { motion, useAnimation, Variants } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const cardVariants: Variants = {
     offscreen: {
