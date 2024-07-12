@@ -19,10 +19,12 @@ const Portfolio = () => {
                     These are the Projects
                 </p>
             </div>
-            <div className="bg-[url('/images/hero1.png')] py-5 bg-auto bg-fixed flex flex-wrap gap-10 w-full h-full justify-center px-[200px] max-[940px]:px-[40px]">
+            <div className=" py-5  flex flex-wrap gap-10 w-full h-full justify-center px-[200px] max-[940px]:px-[40px]">
 
                 <div className=" py-5 px-3 grid justify-center items-center rounded-2xl bg-gradient-to-t from-[#2d2833] via-[#3c2d4b] to-[#2a264e]">
-                    <Image src="/images/project.png" className="rounded-2xl w-full h-full" height={200} width={200} alt="#" />
+                    <div className="w-full">
+                        <Image src="/images/project.png" className="rounded-2xl w-[300px] h-full" height={200} width={200} alt="#" />
+                    </div>
                     <div className="flex justify-start text-start items-center px-2 py-4">
                         <p>Education platform</p>
                     </div>
@@ -42,7 +44,7 @@ const Portfolio = () => {
                     These are the Work Experience
                 </p>
             </div>
-            <div className="grid gap-4 px-[150px] max-[940px]:px-[30px] mt-[70px] ">
+            <div className="grid gap-4 px-[150px] max-[940px]:px-[30px] mt-[70px] bg-[url('/images/hero1.png')] bg-auto bg-fixed ">
                 <div className="px-12 py-5 rounded-2xl bg-[#131313] flex justify-between gap-4 w-full max-[1023px]:grid max-[1023px]:justify-center">
                     <div className="grid gap-3 w-full">
                         <h1 className="font-semibold text-[25px] max-[1277px]:text-[20px]">Front-End Software Engineer</h1>
