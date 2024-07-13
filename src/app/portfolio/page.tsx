@@ -62,16 +62,16 @@ const Portfolio = () => {
         <motion.div className={`text-white grid ${booleanValue ? "bg-white" : ""} w-full`} initial={{ opacity: 0, y: 20 }} animate={controls}>
             {showButton && (
                 <motion.button
-                    onClick={handleClick}
-                    className="fixed top-6 right-6 bg-white p-1 rounded-full z-50"
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1, transition: { duration: 0.5 } }}
-                    whileHover={{ scale: 1.1 }}
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" style={{ fill: '#000000' }}>
-                        <path d="m12 6.879-7.061 7.06 2.122 2.122L12 11.121l4.939 4.94 2.122-2.122z"></path>
-                    </svg>
-                </motion.button>
+                onClick={handleClick}
+                className={`fixed top-6 right-6 ${booleanValue ? "bg-black " : "bg-white"}  p-1 rounded-full z-50`}
+                initial={{ scale: 0 }}
+                animate={{ scale: 1, transition: { duration: 0.5 } }}
+                whileHover={{ scale: 1.1 }}
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" style={booleanValue ? {fill: '#ffffff'} : { fill: '#000000' }}>
+                    <path d="m12 6.879-7.061 7.06 2.122 2.122L12 11.121l4.939 4.94 2.122-2.122z"></path>
+                </svg>
+            </motion.button>
             )}
             <div className="mt-[250px] grid gap-4 justify-center text-center px-[200px] max-[940px]:px-[1px] before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:translate-x-full max-[1345px]:before:translate-x-[2px] before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-[500px] max-[1345px]:after:translate-x-[2px] after:bg-gradient-conic after:from-sky-200 after:via-[#b292ff] after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
                 <p className={`text-[27px] ${booleanValue ? "text-[#585858]" : "text-[#c8c8c8]"} `}>
@@ -100,7 +100,7 @@ const Portfolio = () => {
                         <Image src="/images/project.png" className="rounded-2xl w-[350px] h-full" height={200} width={200} alt="#" />
                     </div>
                     <div className="flex justify-start text-start items-center px-2 py-4">
-                        <p>Education platform</p>
+                        <p className={`${booleanValue ? "text-black" : "text-[#ffffff]"}`}>Education platform</p>
                     </div>
                     <div className="flex justify-between items-center mt-5 px-3">
                         <Link href="/portfolio/view-project" className={`flex gap-2 items-center px-4 py-2   ${booleanValue ? "bg-[#ececec] text-black" : "bg-[#1b1b1b]"} text-[16px] rounded-2xl hover:gap-3  duration-200`}>
@@ -141,7 +141,7 @@ const Portfolio = () => {
                 </p>
             </div>
             <div className="grid gap-4 px-[150px] max-[940px]:px-[30px] mt-[70px]  ">
-                <div className={`project-one px-12 py-5 rounded-2xl ${booleanValue ? "bg-[#1313133a]" : "bg-[#131313]"}  flex items-center justify-between gap-4 w-full max-[1023px]:grid max-[1023px]:justify-center`}>
+                <div className={`project-one px-12 py-5 rounded-2xl ${booleanValue ? "bg-[#1313131f]" : "bg-[#131313]"}  flex items-center justify-between gap-4 w-full max-[1023px]:grid max-[1023px]:justify-center`}>
                     <div className="grid gap-3 w-full">
                         <h1 className={` ${booleanValue ? "text-black" : ""} font-semibold text-[25px] max-[1277px]:text-[20px] `}>Front-End Software Engineer</h1>
                         <p className={` ${booleanValue ? "text-[#6738d3]" : "text-[#b292ff]"} text-[20px] max-[1277px]:text-[16px]`}>X-Tech</p>

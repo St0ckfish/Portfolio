@@ -8,7 +8,7 @@ const Footer = () => {
     return (
         <>
             <div className={` w-full h-[300px] ${booleanValue ? "bg-white" : ""} flex justify-center items-end lg:px-[120px] lg:py-[60px] sm:py-[60px] sm:px-[20px]`}>
-                <div className={`px-7 py-5 rounded-full h-[100px] max-[920px]:h-[70px] ${booleanValue ? "bg-[#1313133a]" : "bg-[#131313]"}  flex justify-between items-center w-full`}>
+                <div className={`px-7 py-5 rounded-full h-[100px] max-[920px]:h-[70px] ${booleanValue ? "bg-[#1313131f]" : "bg-[#131313]"}  flex justify-between items-center w-full`}>
                     <h1 className={`text-[#6e6e6e] ${booleanValue ? "text-[#050505] " : "text-[#6e6e6e] "} text-[27px] `}>Follow me</h1>
                     <div className="flex gap-2 ml-2">
                         <a href="github.com/M0staphaTaha" target="_blank">

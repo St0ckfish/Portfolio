@@ -4,8 +4,11 @@ import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from 'react-intersection-observer';
+import { RootState } from "@/GlobalRedux/store";
+import { useSelector } from "react-redux";
 
 const Landing = () => {
+  const booleanValue = useSelector((state: RootState) => state.boolean.value);
     const [ref, inView] = useInView({
         triggerOnce: true,
         threshold: 0.8, // Adjust this value to set how much of the element should be in view to trigger the animation
@@ -126,16 +129,16 @@ const Landing = () => {
     }, [controls]);
 
     return (
-        <motion.div className="text-white grid w-full" initial={{ opacity: 0, y: 20 }} animate={controls}>
+        <motion.div className={` ${booleanValue ? "bg-white text-black" : "text-white"} grid w-full`} initial={{ opacity: 0, y: 20 }} animate={controls}>
             {showButton && (
                 <motion.button
                     onClick={handleClick}
-                    className="fixed top-6 right-6 bg-white p-1 rounded-full z-50"
+                    className={`fixed top-6 right-6 ${booleanValue ? "bg-black " : "bg-white"}  p-1 rounded-full z-50`}
                     initial={{ scale: 0 }}
                     animate={{ scale: 1, transition: { duration: 0.5 } }}
                     whileHover={{ scale: 1.1 }}
                 >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" style={{ fill: '#000000' }}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" style={booleanValue ? {fill: '#ffffff'} : { fill: '#000000' }}>
                         <path d="m12 6.879-7.061 7.06 2.122 2.122L12 11.121l4.939 4.94 2.122-2.122z"></path>
                     </svg>
                 </motion.button>
@@ -149,20 +152,20 @@ const Landing = () => {
                         Hi, I’m Mostapha
                     </motion.h1>
                     <motion.p className="text-[#6e6e6e] text-[24px] max-[690px]:text-[20px] max-[575px]:text-[14px] px-4" initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 1, delay: 1 } }}>
-                        During these <span className="text-white font-semibold">4 years </span> as <span className="text-white font-semibold">Front-End Software Engineer</span>. My <br /> role has extended beyond coding to effective <br /> communication with various departments, to define new <br /> features and spearheading the development of new apps.
+                        During these <span className={`${booleanValue ? "text-black" : "text-[#ffffff]"} font-semibold`}>4 years </span> as <span className={`${booleanValue ? "text-black" : "text-[#ffffff]"} font-semibold`}>Front-End Software Engineer</span>. My <br /> role has extended beyond coding to effective <br /> communication with various departments, to define new <br /> features and spearheading the development of new apps.
                     </motion.p>
                     <motion.div className="flex items-center max-[1240px]:justify-center flex-wrap gap-8 text-[18px]" initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 1, delay: 1.5 } }}>
-                        <a href="https://flowcv.com/resume/tuqcpijwb6" target="_blank" className="px-3.5 py-2 bg-white rounded-2xl text-black font-semibold hover:-translate-y-1 hover:scale-110 duration-200">
+                        <a href="https://flowcv.com/resume/tuqcpijwb6" target="_blank" className={`px-3.5 py-2  ${booleanValue ? "text-white bg-black" : "text-black bg-white"} rounded-2xl  font-semibold hover:-translate-y-1 hover:scale-110 duration-200`}>
                             Download CV
                         </a>
-                        <Link href="/experience" className="hover:text-[#b292ff]">See Experience</Link>
+                        <Link href="/experience" className={`${booleanValue ? "hover:text-[#623bbd]" : "hover:text-[#b292ff]" }  font-semibold`}>See Experience</Link>
                     </motion.div>
                 </div>
             </div>
             <div className="grid">
                 <div className="flex px-[200px] max-[812px]:grid max-[940px]:px-[1px] mt-[200px] justify-between gap-20 overflow-hidden">
-                    <motion.div className="pl-7 flex justify-center items-center max-[812px]:text-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[140px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-[#e6dff7] after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-[#ffffff] before:dark:opacity-10 after:dark:from-[#ffffff] after:dark:via-[#ffffff6e] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-                        <p className="text-[#6e6e6e] text-[15px]">4 Years <br /> <span className="text-white text-[50px] font-semibold">XP</span> <br /> with the most popular ecosystem frontend </p>
+                    <motion.div className={` pl-7 flex justify-center items-center max-[812px]:text-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial ${booleanValue ?  "before:from-black" : "before:from-white"  } before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[140px] after:translate-x-1/3 after:bg-gradient-conic ${booleanValue ? "after:from-gray-800 after:via-[#363538]" : "after:from-sky-200 after:via-[#e6dff7]" } after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent ${booleanValue ? "before:dark:to-[#888888] after:dark:via-[#50505098]" : "before:dark:to-[#ffffff] after:dark:via-[#ffffff6e]" }  before:dark:opacity-10 after:dark:opacity-40 before:lg:h-[360px] z-[-1] `}>
+                        <p className="text-[#6e6e6e] text-[15px]">4 Years <br /> <span className={`${booleanValue ? "text-black" : "text-[#ffffff]"} text-[50px] font-semibold`}>XP</span> <br /> with the most popular ecosystem frontend </p>
                     </motion.div>
                     <motion.div
                         className="slider relative grid gap-5 hide-scrollbar"
@@ -179,7 +182,7 @@ const Landing = () => {
                             {slides.map((slide, index) => (
                                 <motion.div
                                     key={index}
-                                    className={`px-5 py-3 h-[200px] w-[300px] grid items-center gap-3 rounded-3xl`}
+                                    className={`px-5 py-3 h-[200px] w-[300px] grid items-center gap-3 rounded-3xl `}
                                     style={{ backgroundColor: slide.bgColor }}
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1, transition: { duration: 0.5, delay: index * 0.2 } }}
@@ -196,7 +199,7 @@ const Landing = () => {
                         {Array.from({ length: slides.length }).map((_, index) => (
                             <motion.div
                                 key={index}
-                                className={`h-2 rounded-full ${currentIndex === index ? 'bg-white w-8' : 'bg-gray-500 w-3'}`}
+                                className={`h-2 rounded-full ${currentIndex === index && booleanValue == true ? 'bg-black w-8' : currentIndex === index && booleanValue == false  ? 'bg-white w-8' : 'bg-gray-500 w-3'}`}
                                 style={{ cursor: 'pointer' }}
                                 onClick={() => setCurrentIndex(index)}
                                 initial={{ opacity: 0 }}
@@ -212,7 +215,7 @@ const Landing = () => {
                     <h1 className="bg-clip-text text-transparent bg-gradient-to-t from-[#7f42cc] via-[#9e52ff] to-[#b07af7]">NextJS</h1>
                     <h1 className="bg-clip-text text-transparent bg-gradient-to-t from-[#6104d6] via-[#8303ff] to-[#8f23fa]">Coffee</h1>
                 </div>
-                <div className="flex text-center justify-center sm:justify-start sm:text-start text-[#c8c8c8] sm:text-[40px] text-[20px] sm:pl-[70px] pl-[1px]">
+                <div className={`w-full flex text-center justify-center sm:justify-start sm:text-start ${booleanValue ? "text-[#1d1c1cd2]" : "text-[#c8c8c8]"}  sm:text-[40px] text-[20px] sm:pl-[70px] pl-[1px] mt-[20px]`}>
                     <p>
                         These are the <br />
                         technologies I’ve been using
@@ -220,9 +223,9 @@ const Landing = () => {
                 </div>
             </motion.div>
             <motion.div className="grid mt-[200px] px-[200px] max-[940px]:px-[1px] w-full overflow-x-auto" initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 1, delay: 3 } }}>
-                <div className="flex gap-20 text-white w-full">
+                <div className={`flex gap-20  ${booleanValue ? "text-black" : "text-[#ffffff]"} w-full`}>
                     <div className="flex gap-20 w-max">
-                        <div className="px-6 py-4 rounded-3xl border border-x-[#4343438e] border-y-[#232323] grid gap-5 w-[300px]">
+                        <div className={`px-6 py-4 rounded-3xl border ${booleanValue ? "border-x-[#adadada4] border-y-[#d6d6d6]" : "border-x-[#4343438e] border-y-[#232323]"}  grid gap-5 w-[300px]`}>
                             <h1>Front-end Engineer Design</h1>
                             <motion.div ref={ref} className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }}  animate={inView ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: 0.4 } } : {}}>
                                 <div className="p-2 bg-[#272727] rounded-full">
@@ -267,7 +270,7 @@ const Landing = () => {
                                 <p>Figma</p>
                             </motion.div>
                         </div>
-                        <div className="px-6 py-4 rounded-3xl border border-x-[#4343438e] border-y-[#232323] grid gap-2 h-[150px] w-[300px]">
+                        <div className={`px-6 py-4 rounded-3xl border ${booleanValue ? "border-x-[#adadada4] border-y-[#d6d6d6]" : "border-x-[#4343438e] border-y-[#232323]"} grid gap-2 h-[150px] w-[300px]`}>
                             <h1>Dev-Ops</h1>
                             <motion.div ref={ref} className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }}  animate={inView ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: 0.4 } } : {}}>
                                 <div className="p-2 w-[45px] h-[45px] flex items-center justify-center bg-[#272727] rounded-full">
@@ -276,7 +279,7 @@ const Landing = () => {
                                 <p>Docker</p>
                             </motion.div>
                         </div>
-                        <div className="px-6 py-4 rounded-3xl border border-x-[#4343438e] border-y-[#232323] grid gap-3 h-[300px] w-[300px]">
+                        <div className={`px-6 py-4 rounded-3xl border ${booleanValue ? "border-x-[#adadada4] border-y-[#d6d6d6]" : "border-x-[#4343438e] border-y-[#232323]"} grid gap-3 h-[300px] w-[300px]`}>
                             <h1>Languages</h1>
                             <motion.div ref={ref} className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }}  animate={inView ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: 0.6 } } : {}}>
                                 <div className="p-2 bg-[#272727] rounded-full">
@@ -303,7 +306,7 @@ const Landing = () => {
                                 <p>Python</p>
                             </motion.div>
                         </div>
-                        <div className="px-6 py-4 rounded-3xl border border-x-[#4343438e] border-y-[#232323] grid gap-3 h-[300px] w-[300px]">
+                        <div className={`px-6 py-4 rounded-3xl border ${booleanValue ? "border-x-[#adadada4] border-y-[#d6d6d6]" : "border-x-[#4343438e] border-y-[#232323]"} grid gap-3 h-[300px] w-[300px]`}>
                             <h1>Back End</h1>
                             <motion.div ref={ref} className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }}  animate={inView ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: 0.4 } } : {}}>
                                 <div className="p-2 bg-[#272727] rounded-full">
