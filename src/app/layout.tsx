@@ -3,6 +3,9 @@ import "./globals.css";
 import NavBar from "@/components/navBar";
 import Footer from "@/components/footer";
 import { usePathname } from "next/navigation";
+import { Providers } from "@/GlobalRedux/provider";
+import { useSelector } from 'react-redux';
+import { RootState } from "@/GlobalRedux/store";
 
 export default function RootLayout({
   children,
@@ -11,6 +14,8 @@ export default function RootLayout({
 }>) {
   const pathname = usePathname();
   const isLoginPage = pathname === "/admin";
+  // const booleanValue = useSelector((state: RootState) => state.boolean.value);
+
   return (
     <html lang="en">
       <head>
@@ -19,11 +24,14 @@ export default function RootLayout({
         <link rel="icon" type="image/x-icon" href="/images/Stockfish.jpg" />
       </head>
       <body className="bg-[#0c0c0d] selection:text-black selection:bg-[#7feaff]">
-        
-      {!isLoginPage && <NavBar />}
+
+      <Providers>
+        {!isLoginPage && <NavBar />}
         {children}
-      {!isLoginPage && <Footer />}
-        </body>
+        {!isLoginPage && <Footer />}
+      </Providers>
+
+      </body>
     </html>
   );
 }

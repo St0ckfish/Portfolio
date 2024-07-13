@@ -3,8 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
+import { useInView } from 'react-intersection-observer';
 
 const Landing = () => {
+    const [ref, inView] = useInView({
+        triggerOnce: true,
+        threshold: 0.8, // Adjust this value to set how much of the element should be in view to trigger the animation
+      });
+
     const [showButton, setShowButton] = useState(false);
     const controls = useAnimation();
 
@@ -218,43 +224,43 @@ const Landing = () => {
                     <div className="flex gap-20 w-max">
                         <div className="px-6 py-4 rounded-3xl border border-x-[#4343438e] border-y-[#232323] grid gap-5 w-[300px]">
                             <h1>Front-end Engineer Design</h1>
-                            <motion.div className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.27, delay: 4 } }}>
+                            <motion.div ref={ref} className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }}  animate={inView ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: 0.4 } } : {}}>
                                 <div className="p-2 bg-[#272727] rounded-full">
                                     <Image src="/images/react.svg" alt="#" className="rounded-md" width={30} height={30} />
                                 </div>
                                 <p>React</p>
                             </motion.div>
-                            <motion.div className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.27, delay: 4.2 } }}>
+                            <motion.div ref={ref} className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }}  animate={inView ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: 0.6 } } : {}}>
                                 <div className="p-2 bg-[#272727] rounded-full">
                                     <Image src="/images/nxt.png" alt="#" className="rounded-md" width={30} height={30} />
                                 </div>
                                 <p>Next JS</p>
                             </motion.div>
-                            <motion.div className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.27, delay: 4.4 } }}>
+                            <motion.div ref={ref} className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }}  animate={inView ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: 0.8 } } : {}}>
                                 <div className="p-2 bg-[#272727] rounded-full">
                                     <Image src="/images/vite.svg" alt="#" className="rounded-md" width={25} height={25} />
                                 </div>
                                 <p>Vite</p>
                             </motion.div>
-                            <motion.div className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.27, delay: 4.6 } }}>
+                            <motion.div ref={ref} className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }}  animate={inView ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: 1 } } : {}}>
                                 <div className="p-2 bg-[#272727] rounded-full">
                                     <Image src="/images/jest.png" alt="#" className="rounded-md" width={25} height={25} />
                                 </div>
                                 <p>Jest</p>
                             </motion.div >                           
-                            <motion.div className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.27, delay: 4.8 } }}>
+                            <motion.div ref={ref} className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }}  animate={inView ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: 1.2 } } : {}}>
                                 <div className="p-2 bg-[#272727] rounded-full">
                                     <Image src="/images/bun.png" alt="#" className="rounded-md" width={25} height={25} />
                                 </div>
                                 <p>Bun</p>
                             </motion.div>
-                            <motion.div className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.27, delay: 5 } }}>
+                            <motion.div ref={ref} className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }}  animate={inView ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: 1.4 } } : {}}>
                                 <div className="p-2 bg-[#272727] rounded-full">
                                     <Image src="/images/tailwind.svg" alt="#" className="rounded-md" width={30} height={30} />
                                 </div>
                                 <p>Tailwind</p>
                             </motion.div>
-                            <motion.div className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.27, delay: 5.2 } }}>
+                            <motion.div ref={ref} className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }}  animate={inView ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: 1.6 } } : {}}>
                                 <div className="p-2 h-[45px] w-[45px] flex items-center justify-center bg-[#272727] rounded-full">
                                     <Image src="/images/figma.svg" alt="#" className="rounded-md" width={20} height={10} />
                                 </div>
@@ -263,7 +269,7 @@ const Landing = () => {
                         </div>
                         <div className="px-6 py-4 rounded-3xl border border-x-[#4343438e] border-y-[#232323] grid gap-2 h-[150px] w-[300px]">
                             <h1>Dev-Ops</h1>
-                            <motion.div className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.27, delay: 4 } }}>
+                            <motion.div ref={ref} className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }}  animate={inView ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: 0.4 } } : {}}>
                                 <div className="p-2 w-[45px] h-[45px] flex items-center justify-center bg-[#272727] rounded-full">
                                     <Image src="/images/docker.png" alt="#" className="rounded-md" width={25} height={25} />
                                 </div>
@@ -272,25 +278,25 @@ const Landing = () => {
                         </div>
                         <div className="px-6 py-4 rounded-3xl border border-x-[#4343438e] border-y-[#232323] grid gap-3 h-[300px] w-[300px]">
                             <h1>Languages</h1>
-                            <motion.div className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.27, delay: 4 } }}>
+                            <motion.div ref={ref} className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }}  animate={inView ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: 0.6 } } : {}}>
                                 <div className="p-2 bg-[#272727] rounded-full">
                                     <Image src="/images/js.png" alt="#" className="rounded-md" width={25} height={25} />
                                 </div>
                                 <p>JavaScript</p>
                             </motion.div>
-                            <motion.div className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.27, delay: 4.2 } }}>
+                            <motion.div ref={ref} className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }}  animate={inView ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: 0.8 } } : {}}>
                                 <div className="p-2 bg-[#272727] rounded-full">
                                     <Image src="/images/typescript.svg" alt="#" className="rounded-md" width={30} height={30} />
                                 </div>
                                 <p>TypeScript</p>
                             </motion.div>
-                            <motion.div className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.27, delay: 4.4 } }}>
+                            <motion.div ref={ref} className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }}  animate={inView ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: 1 } } : {}}>
                                 <div className="p-2 bg-[#272727] rounded-full">
                                     <Image src="/images/cpp.svg" alt="#" className="rounded-md" width={30} height={30} />
                                 </div>
                                 <p>C++</p>
                             </motion.div>
-                            <motion.div className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.27, delay: 4.6 } }}>
+                            <motion.div ref={ref} className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }}  animate={inView ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: 1.2 } } : {}}>
                                 <div className="p-2 bg-[#272727] rounded-full">
                                     <Image src="/images/py.svg" alt="#" className="rounded-md" width={30} height={30} />
                                 </div>
@@ -299,25 +305,25 @@ const Landing = () => {
                         </div>
                         <div className="px-6 py-4 rounded-3xl border border-x-[#4343438e] border-y-[#232323] grid gap-3 h-[300px] w-[300px]">
                             <h1>Back End</h1>
-                            <motion.div className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.27, delay: 4 } }}>
+                            <motion.div ref={ref} className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }}  animate={inView ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: 0.4 } } : {}}>
                                 <div className="p-2 bg-[#272727] rounded-full">
                                     <Image src="/images/node.svg" alt="#" className="rounded-md" width={30} height={30} />
                                 </div>
                                 <p>NodeJS</p>
                             </motion.div>
-                            <motion.div className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.27, delay: 4.2 } }}>
+                            <motion.div ref={ref} className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }}  animate={inView ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: 0.6 } } : {}}>
                                 <div className="p-2 bg-[#272727] rounded-full">
                                     <Image src="/images/nest.png" alt="#" className="rounded-md" width={30} height={30} />
                                 </div>
                                 <p>Nest</p>
                             </motion.div>
-                            <motion.div className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.27, delay: 4.4 } }}>
+                            <motion.div ref={ref} className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }}  animate={inView ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: 0.8 } } : {}}>
                                 <div className="p-2 bg-[#272727] rounded-full">
                                     <Image src="/images/ex.png" alt="#" className="rounded-md" width={30} height={30} />
                                 </div>
                                 <p>Express</p>
                             </motion.div>
-                            <motion.div className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0, transition: { duration: 0.27, delay: 4.6 } }}>
+                            <motion.div ref={ref} className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }}  animate={inView ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: 1 } } : {}}>
                                 <div className="p-2 bg-[#272727] rounded-full">
                                     <Image src="/images/mongo.svg" alt="#" className="rounded-md" width={30} height={30} />
                                 </div>

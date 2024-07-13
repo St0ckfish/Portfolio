@@ -3,8 +3,12 @@
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "@/GlobalRedux/store";
 
 const Certificates = () => {
+  const booleanValue = useSelector((state: RootState) => state.boolean.value);
+
     const certificates = [
         {
             title: "React & Next From Maximilian",
@@ -33,6 +37,27 @@ const Certificates = () => {
             year: "2024",
             link: "/",
             variant: "right"
+        },
+        {
+            title: "React & Next From Maximilian",
+            issuer: "Udemy",
+            year: "2024",
+            link: "/",
+            variant: "left"
+        },
+        {
+            title: "Networks From Hussien Nasser",
+            issuer: "Udemy",
+            year: "2024",
+            link: "/",
+            variant: "right"
+        },
+        {
+            title: "React & Next From Maximilian",
+            issuer: "Udemy",
+            year: "2024",
+            link: "/",
+            variant: "left"
         },
         // Add more certificates here
     ];
