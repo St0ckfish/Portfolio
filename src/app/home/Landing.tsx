@@ -55,7 +55,7 @@ const Landing = () => {
     const textRef = useRef([]);
     textRef.current = [];
   
-    const addToRefs = (el: number) => {
+    const addToRefs = (el: any) => {
       if (el && !textRef.current.includes(el)) {
         textRef.current.push(el);
       }
