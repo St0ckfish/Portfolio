@@ -11,45 +11,31 @@ const Certificates = () => {
 
     const certificates = [
         {
-            title: "React & Next From Maximilian",
-            issuer: "Udemy",
+            title: "Git & GitHub",
+            issuer: "Elmadrasa",
             year: "2024",
-            link: "/",
+            link: "https://drive.google.com/file/u/0/d/1kqRrJEOHFyTSzaDt84iiixZ13zJeo2oG/view?usp=drivesdk&pli=1",
             variant: "left"
         },
         {
-            title: "Networks From Hussien Nasser",
-            issuer: "Udemy",
-            year: "2024",
-            link: "/",
+            title: "ICPC Contest",
+            issuer: "ICPC",
+            year: "2023",
+            link: "/certificates",
             variant: "right"
         },
         {
-            title: "React & Next From Maximilian",
-            issuer: "Udemy",
+            title: "JavaScript",
+            issuer: "Hacker Rank",
             year: "2024",
-            link: "/",
+            link: "https://www.hackerrank.com/certificates/83d903b1593d",
             variant: "left"
         },
         {
             title: "Networks From Hussien Nasser",
             issuer: "Udemy",
             year: "2024",
-            link: "/",
-            variant: "right"
-        },
-        {
-            title: "React & Next From Maximilian",
-            issuer: "Udemy",
-            year: "2024",
-            link: "/",
-            variant: "left"
-        },
-        {
-            title: "Networks From Hussien Nasser",
-            issuer: "Udemy",
-            year: "2024",
-            link: "/",
+            link: "/certificates",
             variant: "right"
         },
         {
