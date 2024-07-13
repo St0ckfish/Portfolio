@@ -241,10 +241,10 @@ const Landing = () => {
                     </motion.div>
                 </div>
             </div>
-            <div className="grid">
+            <div className="grid z-40">
                 <div className="flex px-[200px] max-[812px]:grid max-[940px]:px-[1px] mt-[200px] justify-between gap-20 overflow-hidden">
-                    <motion.div className={` pl-7 flex justify-center items-center max-[812px]:text-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial ${booleanValue ? "before:from-black" : "before:from-white"} before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[140px] after:translate-x-1/3 after:bg-gradient-conic ${booleanValue ? "after:from-gray-800 after:via-[#363538]" : "after:from-sky-200 after:via-[#e6dff7]"} after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent ${booleanValue ? "before:dark:to-[#888888] after:dark:via-[#50505098]" : "before:dark:to-[#ffffff] after:dark:via-[#ffffff6e]"}  before:dark:opacity-10 after:dark:opacity-40 before:lg:h-[360px] z-[-1] `}>
-                        <p className="text-[#6e6e6e] text-[15px]">4 Years <br /> <span className={`${booleanValue ? "text-black" : "text-[#ffffff]"} text-[50px] font-semibold`}>XP</span> <br /> with the most popular ecosystem frontend </p>
+                    <motion.div className={`z-40 pl-7 flex justify-center items-center max-[812px]:text-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial ${booleanValue ? "before:from-black" : "before:from-white"} before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[140px] after:translate-x-1/3 after:bg-gradient-conic ${booleanValue ? "after:from-gray-800 after:via-[#363538]" : "after:from-sky-200 after:via-[#e6dff7]"} after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent ${booleanValue ? "before:dark:to-[#888888] after:dark:via-[#50505098]" : "before:dark:to-[#ffffff] after:dark:via-[#ffffff6e]"}  before:dark:opacity-10 after:dark:opacity-40 before:lg:h-[360px] z-[-1] `}>
+                        <p className="text-[#6e6e6e] text-[15px] z-40">4 Years <br /> <span className={`${booleanValue ? "text-black" : "text-[#ffffff]"} text-[50px] font-semibold`}>XP</span> <br /> with the most popular ecosystem frontend </p>
                     </motion.div>
                     <motion.div
                         className="slider relative grid gap-5 hide-scrollbar"
