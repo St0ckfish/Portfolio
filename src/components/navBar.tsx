@@ -47,7 +47,7 @@ const NavBar = () => {
     }, [lastScrollY]);
 
     return (
-        <div className={`flex w-full items-center justify-center z-30 top-5 fixed transition-transform duration-300 h-[60px] ${show ? 'translate-y-0' : '-translate-y-full'}`}>
+        <div className={`flex w-full items-center justify-center z-50 top-5 fixed transition-transform duration-300 h-[60px] ${show ? 'translate-y-0' : '-translate-y-full'}`}>
             <nav className={`flex px-8 py-3 inset-x-0 bg-[#211F23]/40 shadow backdrop-blur-lg md:top-6 rounded-3xl ${booleanValue ? "text-black" : "text-white"}  gap-5`}>
                 <Link href="/" className={`${booleanValue ? "hover:text-[#613cb8]" : "hover:text-[#b292ff]" } ${isActive("/") && booleanValue  ? "text-[#613cb8]" : isActive("/") && booleanValue == false  ? "text-[#b292ff]" : ""}`}>Home</Link>
                 <Link href="/portfolio" className={`${booleanValue ? "hover:text-[#613cb8]" : "hover:text-[#b292ff]" } ${isActive("/portfolio") && booleanValue  ? "text-[#613cb8]" : isActive("/portfolio") && booleanValue == false  ? "text-[#b292ff]" : ""}`}>Portfolio</Link>
