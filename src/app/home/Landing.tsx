@@ -234,7 +234,7 @@ const Landing = () => {
                         <a href="https://flowcv.com/resume/tuqcpijwb6" target="_blank" className={`px-3.5 py-2  ${booleanValue ? "text-white bg-black" : "text-black bg-white"} rounded-2xl  font-semibold hover:-translate-y-1 hover:scale-110 duration-200`}>
                             Download CV
                         </a>
-                        <Link href="/experience" className={`${booleanValue ? "hover:text-[#623bbd]" : "hover:text-[#b292ff]"}  font-semibold`}>See Experience</Link>
+                        <Link href="/certificates" className={`${booleanValue ? "hover:text-[#623bbd]" : "hover:text-[#b292ff]"}  font-semibold`}>See Experience</Link>
                     </motion.div>
                     <motion.div className="flex items-center max-[1240px]:justify-center flex-wrap gap-8 text-[18px]">
                         <a className="font-semibold font-mono" href="mailto:m0stapha1@hotmail.com" target="_blank" rel="noopener noreferrer"> m0stapha1@hotmail.com </a>
