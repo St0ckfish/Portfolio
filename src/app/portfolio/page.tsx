@@ -59,7 +59,7 @@ const Portfolio = () => {
         controls.start({ opacity: 1, y: 0, transition: { duration: 1 } });
     }, [controls]);
     return (
-        <motion.div className={`text-white grid ${booleanValue ? "bg-white" : ""} w-full`} initial={{ opacity: 0, y: 20 }} animate={controls}>
+        <motion.div className={`text-white grid z-40 ${booleanValue ? "bg-white" : ""} w-full`} initial={{ opacity: 0, y: 20 }} animate={controls}>
             {showButton && (
                 <motion.button
                 onClick={handleClick}
