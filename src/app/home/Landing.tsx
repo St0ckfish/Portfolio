@@ -52,10 +52,9 @@ const categories = [
     },
 ];
 const Landing = () => {
-    const textRef = useRef([]);
-    textRef.current = [];
-  
-    const addToRefs = (el: any) => {
+    const textRef = useRef<HTMLHeadingElement[]>([]);
+
+    const addToRefs = (el: HTMLHeadingElement) => {
       if (el && !textRef.current.includes(el)) {
         textRef.current.push(el);
       }
