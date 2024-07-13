@@ -132,6 +132,90 @@ const Portfolio = () => {
                 })}
                     </div>
                 </motion.div>
+                <motion.div
+                    className={`project-one py-5 px-3 grid justify-center items-center rounded-2xl  ${booleanValue ? "bg-white border-[#1414151a]" : "bg-black border-[#141415]"} border  shadow-xl`}
+                    initial="offscreen"
+                    whileInView="onscreen"
+                    viewport={{ once: true, amount: 0.8 }}
+                    variants={cardVariants}>
+                    <div className="w-full">
+                        <Image src="/images/vita.png" className="rounded-2xl w-[350px] max-[480px]:w-[300px] h-full" height={200} width={200} alt="#" />
+                    </div>
+                    <div className="flex justify-start text-start items-center px-2 py-4">
+                        <p className={`${booleanValue ? "text-black" : "text-[#ffffff]"}`}>Viaparapharma Dashboard</p>
+                    </div>
+                    <div className="flex justify-between items-center mt-5 px-3">
+                        <Link href="/portfolio/view-project" className={`flex gap-2 items-center px-4 py-2   ${booleanValue ? "bg-[#ececec] text-black" : "bg-[#1b1b1b]"} text-[16px] rounded-2xl hover:gap-3  duration-200`}>
+                            View <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" style={booleanValue ? {fill: '#000000'} : { fill: '#ffffff' }}><path d="m13 3 3.293 3.293-7 7 1.414 1.414 7-7L21 11V3z"></path><path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"></path></svg>
+                        </Link>
+                        <Link href="https://github.com/M0staphaTaha/EduAI-Admin" target="_blank" className={`flex gap-2 items-center px-4 py-2 ${booleanValue ? "bg-[#ececec] text-black" : "bg-[#1b1b1b]"} text-[16px] rounded-2xl hover:gap-3  duration-200`}>
+                            GitHub <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style={booleanValue ? {fill: '#000000'} : { fill: '#ffffff' }}><path fillRule="evenodd" clipRule="evenodd" d="M12.026 2c-5.509 0-9.974 4.465-9.974 9.974 0 4.406 2.857 8.145 6.821 9.465.499.09.679-.217.679-.481 0-.237-.008-.865-.011-1.696-2.775.602-3.361-1.338-3.361-1.338-.452-1.152-1.107-1.459-1.107-1.459-.905-.619.069-.605.069-.605 1.002.07 1.527 1.028 1.527 1.028.89 1.524 2.336 1.084 2.902.829.091-.645.351-1.085.635-1.334-2.214-.251-4.542-1.107-4.542-4.93 0-1.087.389-1.979 1.024-2.675-.101-.253-.446-1.268.099-2.64 0 0 .837-.269 2.742 1.021a9.582 9.582 0 0 1 2.496-.336 9.554 9.554 0 0 1 2.496.336c1.906-1.291 2.742-1.021 2.742-1.021.545 1.372.203 2.387.099 2.64.64.696 1.024 1.587 1.024 2.675 0 3.833-2.33 4.675-4.552 4.922.355.308.675.916.675 1.846 0 1.334-.012 2.41-.012 2.737 0 .267.178.577.687.479C19.146 20.115 22 16.379 22 11.974 22 6.465 17.535 2 12.026 2z"></path></svg>
+                        </Link>
+                    </div>
+                    <div className="flex flex-wrap px-3 py-4 gap-3 w-[350px] max-[480px]:w-[300px]">
+                    {icons.map((icon, index) => {
+                    const [ref, inView] = useInView({
+                        triggerOnce: true,
+                        threshold: 0.1,
+                    });
+
+                    return (
+                        <motion.div
+                            key={index}
+                            className={`icon border border-[#1b1b1d] ${booleanValue ? " border-[#1414151a]" : " border-[#141415]"} flex text-[#888889] gap-3 font-semibold justify-between rounded-full px-2 py-1 items-center text-[15px]`}
+                            ref={ref}
+                            initial={{ opacity: 0, y: 100 }}
+                            animate={inView ? { opacity: 1, y: 0, transition: { duration: 0.5, delay: icon.delay } } : {}}
+                        >
+                            <Image src={icon.src} alt={icon.alt} className="rounded-md " width={20} height={20} />
+                            <p>{icon.alt}</p>
+                        </motion.div>
+                    );
+                })}
+                    </div>
+                </motion.div>
+                <motion.div
+                    className={`project-one py-5 px-3 grid justify-center items-center rounded-2xl  ${booleanValue ? "bg-white border-[#1414151a]" : "bg-black border-[#141415]"} border  shadow-xl`}
+                    initial="offscreen"
+                    whileInView="onscreen"
+                    viewport={{ once: true, amount: 0.8 }}
+                    variants={cardVariants}>
+                    <div className="w-full">
+                        <Image src="/images/ecommerce.png" className="rounded-2xl w-[350px] max-[480px]:w-[300px] h-full" height={200} width={200} alt="#" />
+                    </div>
+                    <div className="flex justify-start text-start items-center px-2 py-4">
+                        <p className={`${booleanValue ? "text-black" : "text-[#ffffff]"}`}>Ecommerce Website</p>
+                    </div>
+                    <div className="flex justify-between items-center mt-5 px-3">
+                        <Link href="/portfolio/view-project" className={`flex gap-2 items-center px-4 py-2   ${booleanValue ? "bg-[#ececec] text-black" : "bg-[#1b1b1b]"} text-[16px] rounded-2xl hover:gap-3  duration-200`}>
+                            View <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" style={booleanValue ? {fill: '#000000'} : { fill: '#ffffff' }}><path d="m13 3 3.293 3.293-7 7 1.414 1.414 7-7L21 11V3z"></path><path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"></path></svg>
+                        </Link>
+                        <Link href="https://github.com/M0staphaTaha/EduAI-Admin" target="_blank" className={`flex gap-2 items-center px-4 py-2 ${booleanValue ? "bg-[#ececec] text-black" : "bg-[#1b1b1b]"} text-[16px] rounded-2xl hover:gap-3  duration-200`}>
+                            GitHub <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style={booleanValue ? {fill: '#000000'} : { fill: '#ffffff' }}><path fillRule="evenodd" clipRule="evenodd" d="M12.026 2c-5.509 0-9.974 4.465-9.974 9.974 0 4.406 2.857 8.145 6.821 9.465.499.09.679-.217.679-.481 0-.237-.008-.865-.011-1.696-2.775.602-3.361-1.338-3.361-1.338-.452-1.152-1.107-1.459-1.107-1.459-.905-.619.069-.605.069-.605 1.002.07 1.527 1.028 1.527 1.028.89 1.524 2.336 1.084 2.902.829.091-.645.351-1.085.635-1.334-2.214-.251-4.542-1.107-4.542-4.93 0-1.087.389-1.979 1.024-2.675-.101-.253-.446-1.268.099-2.64 0 0 .837-.269 2.742 1.021a9.582 9.582 0 0 1 2.496-.336 9.554 9.554 0 0 1 2.496.336c1.906-1.291 2.742-1.021 2.742-1.021.545 1.372.203 2.387.099 2.64.64.696 1.024 1.587 1.024 2.675 0 3.833-2.33 4.675-4.552 4.922.355.308.675.916.675 1.846 0 1.334-.012 2.41-.012 2.737 0 .267.178.577.687.479C19.146 20.115 22 16.379 22 11.974 22 6.465 17.535 2 12.026 2z"></path></svg>
+                        </Link>
+                    </div>
+                    <div className="flex flex-wrap px-3 py-4 gap-3 w-[350px] max-[480px]:w-[300px]">
+                    {icons.map((icon, index) => {
+                    const [ref, inView] = useInView({
+                        triggerOnce: true,
+                        threshold: 0.1,
+                    });
+
+                    return (
+                        <motion.div
+                            key={index}
+                            className={`icon border border-[#1b1b1d] ${booleanValue ? " border-[#1414151a]" : " border-[#141415]"} flex text-[#888889] gap-3 font-semibold justify-between rounded-full px-2 py-1 items-center text-[15px]`}
+                            ref={ref}
+                            initial={{ opacity: 0, y: 100 }}
+                            animate={inView ? { opacity: 1, y: 0, transition: { duration: 0.5, delay: icon.delay } } : {}}
+                        >
+                            <Image src={icon.src} alt={icon.alt} className="rounded-md " width={20} height={20} />
+                            <p>{icon.alt}</p>
+                        </motion.div>
+                    );
+                })}
+                    </div>
+                </motion.div>
 
 
             </div>
