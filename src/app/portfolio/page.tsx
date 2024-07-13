@@ -73,8 +73,8 @@ const Portfolio = () => {
                 </svg>
             </motion.button>
             )}
-            <div className="mt-[250px] grid gap-4 justify-center text-center px-[200px] max-[940px]:px-[1px] before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:translate-x-full max-[1345px]:before:translate-x-[2px] before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-[500px] max-[1345px]:after:translate-x-[2px] after:bg-gradient-conic after:from-sky-200 after:via-[#b292ff] after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-                <p className={`text-[27px] ${booleanValue ? "text-[#585858]" : "text-[#c8c8c8]"} `}>
+            <div className="mt-[250px] grid gap-4 justify-center text-center px-[200px] max-[940px]:px-[1px] before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:translate-x-full max-[1345px]:before:translate-x-[2px] before:rounded-full before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-[500px] max-[1345px]:after:translate-x-[2px] after:bg-gradient-conic after:from-sky-200 after:via-[#b292ff] after:blur-2xl after:content-[''] before:bg-gradient-to-br before:from-transparent before:to-blue-700 before:opacity-10  after:opacity-40 before:lg:h-[360px] z-[-1]">
+                <p className={`text-[27px] max-[480px]:text-[24px] ${booleanValue ? "text-[#585858]" : "text-[#c8c8c8]"} `}>
                     &lt; Here, you can know me a little more and see my <br /> whole experience as a <span className={`font-semibold ${booleanValue ? "text-black" : "text-[#ffffff]"} `}>Front-End Software Engineer</span>. /&gt;
                 </p>
             </div>
@@ -97,7 +97,7 @@ const Portfolio = () => {
                     viewport={{ once: true, amount: 0.8 }}
                     variants={cardVariants}>
                     <div className="w-full">
-                        <Image src="/images/project.png" className="rounded-2xl w-[350px] h-full" height={200} width={200} alt="#" />
+                        <Image src="/images/project.png" className="rounded-2xl w-[350px] max-[480px]:w-[300px] h-full" height={200} width={200} alt="#" />
                     </div>
                     <div className="flex justify-start text-start items-center px-2 py-4">
                         <p className={`${booleanValue ? "text-black" : "text-[#ffffff]"}`}>Education platform</p>
@@ -110,7 +110,7 @@ const Portfolio = () => {
                             GitHub <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style={booleanValue ? {fill: '#000000'} : { fill: '#ffffff' }}><path fillRule="evenodd" clipRule="evenodd" d="M12.026 2c-5.509 0-9.974 4.465-9.974 9.974 0 4.406 2.857 8.145 6.821 9.465.499.09.679-.217.679-.481 0-.237-.008-.865-.011-1.696-2.775.602-3.361-1.338-3.361-1.338-.452-1.152-1.107-1.459-1.107-1.459-.905-.619.069-.605.069-.605 1.002.07 1.527 1.028 1.527 1.028.89 1.524 2.336 1.084 2.902.829.091-.645.351-1.085.635-1.334-2.214-.251-4.542-1.107-4.542-4.93 0-1.087.389-1.979 1.024-2.675-.101-.253-.446-1.268.099-2.64 0 0 .837-.269 2.742 1.021a9.582 9.582 0 0 1 2.496-.336 9.554 9.554 0 0 1 2.496.336c1.906-1.291 2.742-1.021 2.742-1.021.545 1.372.203 2.387.099 2.64.64.696 1.024 1.587 1.024 2.675 0 3.833-2.33 4.675-4.552 4.922.355.308.675.916.675 1.846 0 1.334-.012 2.41-.012 2.737 0 .267.178.577.687.479C19.146 20.115 22 16.379 22 11.974 22 6.465 17.535 2 12.026 2z"></path></svg>
                         </Link>
                     </div>
-                    <div className="flex flex-wrap px-3 py-4 gap-3 w-[350px]">
+                    <div className="flex flex-wrap px-3 py-4 gap-3 w-[350px] max-[480px]:w-[300px]">
                     {icons.map((icon, index) => {
                     const [ref, inView] = useInView({
                         triggerOnce: true,

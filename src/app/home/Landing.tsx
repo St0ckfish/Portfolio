@@ -202,7 +202,7 @@ const Landing = () => {
                         {Array.from({ length: slides.length }).map((_, index) => (
                             <motion.div
                                 key={index}
-                                className={`h-2 rounded-full ${currentIndex === index && booleanValue == true ? 'bg-black w-8' : currentIndex === index && booleanValue == false  ? 'bg-white w-8' : 'bg-gray-500 w-3'}`}
+                                className={`h-2 transition ease-in duration-300 rounded-full ${currentIndex === index && booleanValue == true ? 'bg-black w-8' : currentIndex === index && booleanValue == false  ? 'bg-white w-8' : 'bg-gray-500 w-3'}`}
                                 style={{ cursor: 'pointer' }}
                                 onClick={() => setCurrentIndex(index)}
                                 initial={{ opacity: 0 }}
