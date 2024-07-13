@@ -160,6 +160,9 @@ const Landing = () => {
                         </a>
                         <Link href="/experience" className={`${booleanValue ? "hover:text-[#623bbd]" : "hover:text-[#b292ff]" }  font-semibold`}>See Experience</Link>
                     </motion.div>
+                    <motion.div className="flex items-center max-[1240px]:justify-center flex-wrap gap-8 text-[18px]">
+                    <a className="font-semibold font-mono" href="mailto:m0stapha1@hotmail.com" target="_blank" rel="noopener noreferrer"> m0stapha1@hotmail.com </a>
+                    </motion.div>
                 </div>
             </div>
             <div className="grid">
