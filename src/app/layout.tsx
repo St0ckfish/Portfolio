@@ -4,8 +4,6 @@ import NavBar from "@/components/navBar";
 import Footer from "@/components/footer";
 import { usePathname } from "next/navigation";
 import { Providers } from "@/GlobalRedux/provider";
-import { useSelector } from 'react-redux';
-import { RootState } from "@/GlobalRedux/store";
 
 export default function RootLayout({
   children,
@@ -14,7 +12,6 @@ export default function RootLayout({
 }>) {
   const pathname = usePathname();
   const isLoginPage = pathname === "/admin";
-  // const booleanValue = useSelector((state: RootState) => state.boolean.value);
 
   return (
     <html lang="en">

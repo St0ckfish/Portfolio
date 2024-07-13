@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,13 +7,89 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from 'react-intersection-observer';
 import { RootState } from "@/GlobalRedux/store";
 import { useSelector } from "react-redux";
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+gsap.registerPlugin(ScrollTrigger);
+const categories = [
+    {
+        title: 'Front-end Engineer Design',
+        items: [
+            { name: 'React', src: '/images/react.svg', delay: 0.4 },
+            { name: 'Next JS', src: '/images/nxt.png', delay: 0.6 },
+            { name: 'Vite', src: '/images/vite.svg', delay: 0.8 },
+            { name: 'Jest', src: '/images/jest.png', delay: 1 },
+            { name: 'Bun', src: '/images/bun.png', delay: 1.2 },
+            { name: 'Tailwind', src: '/images/tailwind.svg', delay: 1.4 },
+            { name: 'Figma', src: '/images/figma.svg', delay: 1.6 },
+        ],
+        height: 'auto',
+    },
+    {
+        title: 'Dev-Ops',
+        items: [{ name: 'Docker', src: '/images/docker.png', delay: 0.4 }],
+        height: '150px',
+    },
+    {
+        title: 'Languages',
+        items: [
+            { name: 'JavaScript', src: '/images/js.png', delay: 0.6 },
+            { name: 'TypeScript', src: '/images/typescript.svg', delay: 0.8 },
+            { name: 'C++', src: '/images/cpp.svg', delay: 1 },
+            { name: 'Python', src: '/images/py.svg', delay: 1.2 },
+        ],
+        height: '320px',
+    },
+    {
+        title: 'Back End',
+        items: [
+            { name: 'NodeJS', src: '/images/node.svg', delay: 0.4 },
+            { name: 'Nest', src: '/images/nest.png', delay: 0.6 },
+            { name: 'Express', src: '/images/ex.png', delay: 0.8 },
+            { name: 'MongoDB', src: '/images/mongo.svg', delay: 1 },
+        ],
+        height: '320px',
+    },
+];
 const Landing = () => {
-  const booleanValue = useSelector((state: RootState) => state.boolean.value);
+    const textRef = useRef([]);
+    textRef.current = [];
+  
+    const addToRefs = (el: number) => {
+      if (el && !textRef.current.includes(el)) {
+        textRef.current.push(el);
+      }
+    };
+  
+    useEffect(() => {
+      textRef.current.forEach((el, index) => {
+        gsap.fromTo(
+          el,
+          { opacity: 0, y: 50, scale: 0.8, rotation: 10 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            rotation: 0,
+            duration: 1.5,
+            scrollTrigger: {
+              trigger: el,
+              start: "top 80%", // Adjust the start position as needed
+              end: "top 20%",   // Adjust the end position as needed
+              scrub: true,
+              toggleActions: "play none none reverse",
+            },
+            delay: index * 0.2,
+          }
+        );
+      });
+    }, []);
+  
+    const booleanValue = useSelector((state: RootState) => state.boolean.value);
     const [ref, inView] = useInView({
         triggerOnce: true,
         threshold: 0.8, // Adjust this value to set how much of the element should be in view to trigger the animation
-      });
+    });
 
     const [showButton, setShowButton] = useState(false);
     const controls = useAnimation();
@@ -138,7 +215,7 @@ const Landing = () => {
                     animate={{ scale: 1, transition: { duration: 0.5 } }}
                     whileHover={{ scale: 1.1 }}
                 >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" style={booleanValue ? {fill: '#ffffff'} : { fill: '#000000' }}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" style={booleanValue ? { fill: '#ffffff' } : { fill: '#000000' }}>
                         <path d="m12 6.879-7.061 7.06 2.122 2.122L12 11.121l4.939 4.94 2.122-2.122z"></path>
                     </svg>
                 </motion.button>
@@ -158,16 +235,16 @@ const Landing = () => {
                         <a href="https://flowcv.com/resume/tuqcpijwb6" target="_blank" className={`px-3.5 py-2  ${booleanValue ? "text-white bg-black" : "text-black bg-white"} rounded-2xl  font-semibold hover:-translate-y-1 hover:scale-110 duration-200`}>
                             Download CV
                         </a>
-                        <Link href="/experience" className={`${booleanValue ? "hover:text-[#623bbd]" : "hover:text-[#b292ff]" }  font-semibold`}>See Experience</Link>
+                        <Link href="/experience" className={`${booleanValue ? "hover:text-[#623bbd]" : "hover:text-[#b292ff]"}  font-semibold`}>See Experience</Link>
                     </motion.div>
                     <motion.div className="flex items-center max-[1240px]:justify-center flex-wrap gap-8 text-[18px]">
-                    <a className="font-semibold font-mono" href="mailto:m0stapha1@hotmail.com" target="_blank" rel="noopener noreferrer"> m0stapha1@hotmail.com </a>
+                        <a className="font-semibold font-mono" href="mailto:m0stapha1@hotmail.com" target="_blank" rel="noopener noreferrer"> m0stapha1@hotmail.com </a>
                     </motion.div>
                 </div>
             </div>
             <div className="grid">
                 <div className="flex px-[200px] max-[812px]:grid max-[940px]:px-[1px] mt-[200px] justify-between gap-20 overflow-hidden">
-                    <motion.div className={` pl-7 flex justify-center items-center max-[812px]:text-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial ${booleanValue ?  "before:from-black" : "before:from-white"  } before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[140px] after:translate-x-1/3 after:bg-gradient-conic ${booleanValue ? "after:from-gray-800 after:via-[#363538]" : "after:from-sky-200 after:via-[#e6dff7]" } after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent ${booleanValue ? "before:dark:to-[#888888] after:dark:via-[#50505098]" : "before:dark:to-[#ffffff] after:dark:via-[#ffffff6e]" }  before:dark:opacity-10 after:dark:opacity-40 before:lg:h-[360px] z-[-1] `}>
+                    <motion.div className={` pl-7 flex justify-center items-center max-[812px]:text-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial ${booleanValue ? "before:from-black" : "before:from-white"} before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[140px] after:translate-x-1/3 after:bg-gradient-conic ${booleanValue ? "after:from-gray-800 after:via-[#363538]" : "after:from-sky-200 after:via-[#e6dff7]"} after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent ${booleanValue ? "before:dark:to-[#888888] after:dark:via-[#50505098]" : "before:dark:to-[#ffffff] after:dark:via-[#ffffff6e]"}  before:dark:opacity-10 after:dark:opacity-40 before:lg:h-[360px] z-[-1] `}>
                         <p className="text-[#6e6e6e] text-[15px]">4 Years <br /> <span className={`${booleanValue ? "text-black" : "text-[#ffffff]"} text-[50px] font-semibold`}>XP</span> <br /> with the most popular ecosystem frontend </p>
                     </motion.div>
                     <motion.div
@@ -202,7 +279,7 @@ const Landing = () => {
                         {Array.from({ length: slides.length }).map((_, index) => (
                             <motion.div
                                 key={index}
-                                className={`h-2 transition ease-in duration-300 rounded-full ${currentIndex === index && booleanValue == true ? 'bg-black w-8' : currentIndex === index && booleanValue == false  ? 'bg-white w-8' : 'bg-gray-500 w-3'}`}
+                                className={`h-2 transition ease-in duration-300 rounded-full ${currentIndex === index && booleanValue == true ? 'bg-black w-8' : currentIndex === index && booleanValue == false ? 'bg-white w-8' : 'bg-gray-500 w-3'}`}
                                 style={{ cursor: 'pointer' }}
                                 onClick={() => setCurrentIndex(index)}
                                 initial={{ opacity: 0 }}
@@ -214,9 +291,24 @@ const Landing = () => {
             </div>
             <motion.div className="grid gap-36 bg-[url('/images/hero1.png')] bg-auto bg-fixed" initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 1, delay: 2 } }}>
                 <div className="grid justify-center text-center gap-24 sm:text-[100px] text-[50px] font-semibold mt-[200px]">
-                    <h1 className="bg-clip-text text-transparent bg-gradient-to-t from-[#9e7bcc] via-[#c69aff] to-[#c7aceb]">TypeScript</h1>
-                    <h1 className="bg-clip-text text-transparent bg-gradient-to-t from-[#7f42cc] via-[#9e52ff] to-[#b07af7]">NextJS</h1>
-                    <h1 className="bg-clip-text text-transparent bg-gradient-to-t from-[#6104d6] via-[#8303ff] to-[#8f23fa]">Coffee</h1>
+                    <h1
+                        ref={addToRefs}
+                        className="bg-clip-text text-transparent bg-gradient-to-t from-[#9e7bcc] via-[#c69aff] to-[#c7aceb]"
+                    >
+                        TypeScript
+                    </h1>
+                    <h1
+                        ref={addToRefs}
+                        className="bg-clip-text text-transparent bg-gradient-to-t from-[#7f42cc] via-[#9e52ff] to-[#b07af7]"
+                    >
+                        NextJS
+                    </h1>
+                    <h1
+                        ref={addToRefs}
+                        className="bg-clip-text text-transparent bg-gradient-to-t from-[#6104d6] via-[#8303ff] to-[#8f23fa]"
+                    >
+                        Coffee
+                    </h1>
                 </div>
                 <div className={`w-full flex text-center justify-center sm:justify-start sm:text-start ${booleanValue ? "text-[#1d1c1cd2]" : "text-[#c8c8c8]"}  sm:text-[40px] text-[20px] sm:pl-[70px] pl-[1px] mt-[20px]`}>
                     <p>
@@ -228,114 +320,42 @@ const Landing = () => {
             <motion.div className="grid mt-[200px] px-[200px] max-[940px]:px-[1px] w-full overflow-x-auto" initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 1, delay: 3 } }}>
                 <div className={`flex gap-20  ${booleanValue ? "text-black" : "text-[#ffffff]"} w-full`}>
                     <div className="flex gap-20 w-max">
-                        <div className={`px-6 py-4 rounded-3xl border ${booleanValue ? "border-x-[#adadada4] border-y-[#d6d6d6]" : "border-x-[#4343438e] border-y-[#232323]"}  grid gap-5 w-[300px]`}>
-                            <h1>Front-end Engineer Design</h1>
-                            <motion.div ref={ref} className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }}  animate={inView ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: 0.4 } } : {}}>
-                                <div className="p-2 bg-[#272727] rounded-full">
-                                    <Image src="/images/react.svg" alt="#" className="rounded-md" width={30} height={30} />
-                                </div>
-                                <p>React</p>
-                            </motion.div>
-                            <motion.div ref={ref} className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }}  animate={inView ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: 0.6 } } : {}}>
-                                <div className="p-2 bg-[#272727] rounded-full">
-                                    <Image src="/images/nxt.png" alt="#" className="rounded-md" width={30} height={30} />
-                                </div>
-                                <p>Next JS</p>
-                            </motion.div>
-                            <motion.div ref={ref} className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }}  animate={inView ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: 0.8 } } : {}}>
-                                <div className="p-2 bg-[#272727] rounded-full">
-                                    <Image src="/images/vite.svg" alt="#" className="rounded-md" width={25} height={25} />
-                                </div>
-                                <p>Vite</p>
-                            </motion.div>
-                            <motion.div ref={ref} className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }}  animate={inView ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: 1 } } : {}}>
-                                <div className="p-2 bg-[#272727] rounded-full">
-                                    <Image src="/images/jest.png" alt="#" className="rounded-md" width={25} height={25} />
-                                </div>
-                                <p>Jest</p>
-                            </motion.div >                           
-                            <motion.div ref={ref} className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }}  animate={inView ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: 1.2 } } : {}}>
-                                <div className="p-2 bg-[#272727] rounded-full">
-                                    <Image src="/images/bun.png" alt="#" className="rounded-md" width={25} height={25} />
-                                </div>
-                                <p>Bun</p>
-                            </motion.div>
-                            <motion.div ref={ref} className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }}  animate={inView ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: 1.4 } } : {}}>
-                                <div className="p-2 bg-[#272727] rounded-full">
-                                    <Image src="/images/tailwind.svg" alt="#" className="rounded-md" width={30} height={30} />
-                                </div>
-                                <p>Tailwind</p>
-                            </motion.div>
-                            <motion.div ref={ref} className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }}  animate={inView ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: 1.6 } } : {}}>
-                                <div className="p-2 h-[45px] w-[45px] flex items-center justify-center bg-[#272727] rounded-full">
-                                    <Image src="/images/figma.svg" alt="#" className="rounded-md" width={20} height={10} />
-                                </div>
-                                <p>Figma</p>
-                            </motion.div>
-                        </div>
-                        <div className={`px-6 py-4 rounded-3xl border ${booleanValue ? "border-x-[#adadada4] border-y-[#d6d6d6]" : "border-x-[#4343438e] border-y-[#232323]"} grid gap-2 h-[150px] w-[300px]`}>
-                            <h1>Dev-Ops</h1>
-                            <motion.div ref={ref} className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }}  animate={inView ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: 0.4 } } : {}}>
-                                <div className="p-2 w-[45px] h-[45px] flex items-center justify-center bg-[#272727] rounded-full">
-                                    <Image src="/images/docker.png" alt="#" className="rounded-md" width={25} height={25} />
-                                </div>
-                                <p>Docker</p>
-                            </motion.div>
-                        </div>
-                        <div className={`px-6 py-4 rounded-3xl border ${booleanValue ? "border-x-[#adadada4] border-y-[#d6d6d6]" : "border-x-[#4343438e] border-y-[#232323]"} grid gap-3 h-[300px] w-[300px]`}>
-                            <h1>Languages</h1>
-                            <motion.div ref={ref} className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }}  animate={inView ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: 0.6 } } : {}}>
-                                <div className="p-2 bg-[#272727] rounded-full">
-                                    <Image src="/images/js.png" alt="#" className="rounded-md" width={25} height={25} />
-                                </div>
-                                <p>JavaScript</p>
-                            </motion.div>
-                            <motion.div ref={ref} className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }}  animate={inView ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: 0.8 } } : {}}>
-                                <div className="p-2 bg-[#272727] rounded-full">
-                                    <Image src="/images/typescript.svg" alt="#" className="rounded-md" width={30} height={30} />
-                                </div>
-                                <p>TypeScript</p>
-                            </motion.div>
-                            <motion.div ref={ref} className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }}  animate={inView ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: 1 } } : {}}>
-                                <div className="p-2 bg-[#272727] rounded-full">
-                                    <Image src="/images/cpp.svg" alt="#" className="rounded-md" width={30} height={30} />
-                                </div>
-                                <p>C++</p>
-                            </motion.div>
-                            <motion.div ref={ref} className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }}  animate={inView ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: 1.2 } } : {}}>
-                                <div className="p-2 bg-[#272727] rounded-full">
-                                    <Image src="/images/py.svg" alt="#" className="rounded-md" width={30} height={30} />
-                                </div>
-                                <p>Python</p>
-                            </motion.div>
-                        </div>
-                        <div className={`px-6 py-4 rounded-3xl border ${booleanValue ? "border-x-[#adadada4] border-y-[#d6d6d6]" : "border-x-[#4343438e] border-y-[#232323]"} grid gap-3 h-[300px] w-[300px]`}>
-                            <h1>Back End</h1>
-                            <motion.div ref={ref} className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }}  animate={inView ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: 0.4 } } : {}}>
-                                <div className="p-2 bg-[#272727] rounded-full">
-                                    <Image src="/images/node.svg" alt="#" className="rounded-md" width={30} height={30} />
-                                </div>
-                                <p>NodeJS</p>
-                            </motion.div>
-                            <motion.div ref={ref} className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }}  animate={inView ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: 0.6 } } : {}}>
-                                <div className="p-2 bg-[#272727] rounded-full">
-                                    <Image src="/images/nest.png" alt="#" className="rounded-md" width={30} height={30} />
-                                </div>
-                                <p>Nest</p>
-                            </motion.div>
-                            <motion.div ref={ref} className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }}  animate={inView ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: 0.8 } } : {}}>
-                                <div className="p-2 bg-[#272727] rounded-full">
-                                    <Image src="/images/ex.png" alt="#" className="rounded-md" width={30} height={30} />
-                                </div>
-                                <p>Express</p>
-                            </motion.div>
-                            <motion.div ref={ref} className="flex gap-2 items-center" initial={{ opacity: 0, x: 200 }}  animate={inView ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: 1 } } : {}}>
-                                <div className="p-2 bg-[#272727] rounded-full">
-                                    <Image src="/images/mongo.svg" alt="#" className="rounded-md" width={30} height={30} />
-                                </div>
-                                <p>MongoDB</p>
-                            </motion.div>
-                        </div>
+                        {categories.map((category, index) => (
+                            <div
+                                key={index}
+                                className={`px-6 py-4 rounded-3xl border ${booleanValue
+                                    ? 'border-x-[#adadada4] border-y-[#d6d6d6]'
+                                    : 'border-x-[#4343438e] border-y-[#232323]'
+                                    } grid gap-5 w-[300px] h-[${category.height}]`}
+                            >
+                                <h1>{category.title}</h1>
+                                {category.items.map((item, idx) => {
+                                    const [ref, inView] = useInView({
+                                        triggerOnce: true,
+                                        threshold: 0.1,
+                                    });
+
+                                    return (
+                                        <motion.div
+                                            key={idx}
+                                            className="flex gap-2 items-center"
+                                            ref={ref}
+                                            initial={{ opacity: 0, x: 200 }}
+                                            animate={
+                                                inView
+                                                    ? { opacity: 1, x: 0, transition: { duration: 0.27, delay: item.delay } }
+                                                    : {}
+                                            }
+                                        >
+                                            <div className="p-2 bg-[#272727] rounded-full">
+                                                <Image src={item.src} alt={item.name} className="rounded-md" width={30} height={30} />
+                                            </div>
+                                            <p>{item.name}</p>
+                                        </motion.div>
+                                    );
+                                })}
+                            </div>
+                        ))}
                     </div>
                 </div>
             </motion.div>
