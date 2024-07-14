@@ -124,7 +124,7 @@ const Portfolio = () => {
                 </p>
             </div>
             <div className="flex justify-center items-center mt-8">
-                <a href="https://flowcv.com/resume/tuqcpijwb6" target="_blank" className={`px-3.5 py-2 ${booleanValue ? "bg-black text-white" : "bg-white"} rounded-2xl text-black font-semibold hover:-translate-y-1 hover:scale-110 duration-200`}>
+                <a href="https://flowcv.com/resume/tuqcpijwb6" target="_blank" className={`px-3.5 py-2 z-40 ${booleanValue ? "bg-black text-white" : "bg-white"} rounded-2xl text-black font-semibold hover:-translate-y-1 hover:scale-110 duration-200`}>
                     Download CV
                 </a>
             </div>
