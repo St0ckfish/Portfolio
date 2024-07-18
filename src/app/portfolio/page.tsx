@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client"
 import Image from "next/image";
@@ -7,6 +8,7 @@ import { useEffect, useState } from "react";
 import { RootState } from "@/GlobalRedux/store";
 import { useSelector } from "react-redux";
 import { useInView } from 'react-intersection-observer';
+import projects from "./projects.json"
 
 const cardVariants: Variants = {
     offscreen: {
@@ -22,60 +24,6 @@ const cardVariants: Variants = {
         }
     }
 };
-
-
-const icons = [
-    { src: "/images/nxt.png", alt: "React", delay: 0.5 },
-    { src: "/images/react.svg", alt: "NextJS", delay: 0.7 },
-    { src: "/images/tailwind.svg", alt: "Tailwind", delay: 0.9 },
-    { src: "/images/typescript.svg", alt: "TypeScript", delay: 0.11 },
-    { src: "/images/spring.svg", alt: "Spring", delay: 0.13 },
-    { src: "/images/js.svg", alt: "JavaScript", delay: 0.15 },
-];
-
-const projects = [{
-    "id": 1,
-    "image": "/images/project.png",
-    "name": "Education platform",
-    "description": "Description for Education platform",
-    "link": "https://edu-ai-admin-stockfish.vercel.app/",
-    "icons": [
-        { src: "/images/nxt.png", alt: "React", delay: 0.5 },
-        { src: "/images/react.svg", alt: "NextJS", delay: 0.7 },
-        { src: "/images/tailwind.svg", alt: "Tailwind", delay: 0.9 },
-        { src: "/images/typescript.svg", alt: "TypeScript", delay: 0.11 },
-        { src: "/images/spring.svg", alt: "Spring", delay: 0.13 },
-        { src: "/images/js.svg", alt: "JavaScript", delay: 0.15 },
-    ]
-},
-{
-    "id": 2,
-    "image": "/images/vita.png",
-    "name": "Viaparapharma Dashboard",
-    "description": "Description for Viaparapharma Dashboard",
-    "link": "http://dashboard-full-api-stockfish.vercel.app/",
-    "icons": [
-        { src: "/images/react.svg", alt: "NextJS", delay: 0.7 },
-        { src: "/images/tailwind.svg", alt: "Tailwind", delay: 0.9 },
-        { src: "/images/spring.svg", alt: "Spring", delay: 0.13 },
-        { src: "/images/typescript.svg", alt: "TypeScript", delay: 0.11 },
-        { src: "/images/js.svg", alt: "JavaScript", delay: 0.15 },
-    ]
-},
-{
-    "id": 3,
-    "image": "/images/ecommerce.png",
-    "name": "Ecommerce Website",
-    "description": "Description for Ecommerce Website",
-    "link": "https://stockfish-ecommerce.vercel.app/",
-    "icons": [
-        { src: "/images/react.svg", alt: "NextJS", delay: 0.7 },
-        { src: "/images/tailwind.svg", alt: "Tailwind", delay: 0.9 },
-        { src: "/images/typescript.svg", alt: "TypeScript", delay: 0.11 },
-        { src: "/images/js.svg", alt: "JavaScript", delay: 0.15 },
-    ]
-}
-]
 
 const Portfolio = () => {
 
@@ -144,13 +92,13 @@ const Portfolio = () => {
                         viewport={{ once: true, amount: 0.8 }}
                         variants={cardVariants}>
                         <div className="w-full">
-                            <Image src={project.image} className="rounded-2xl w-[350px] max-[480px]:w-[300px] h-full" height={200} width={200} alt={project.name} />
+                            <img src={project.image} className="rounded-2xl w-[350px] max-[480px]:w-[300px] h-full" height={200} width={200} alt={project.name} />
                         </div>
                         <div className="flex justify-start text-start items-center px-2 py-4">
                             <p className={`${booleanValue ? "text-black" : "text-[#ffffff]"}`}>{project.name}</p>
                         </div>
                         <div className="flex justify-between items-center mt-5 px-3">
-                            <Link href={project.link} className={`flex gap-2 items-center px-4 py-2 ${booleanValue ? "bg-[#ececec] text-black" : "bg-[#1b1b1b]"} text-[16px] rounded-2xl hover:gap-3 duration-200`}>
+                            <Link href={`portfolio/view-project/${project.id}`} className={`flex gap-2 items-center px-4 py-2 ${booleanValue ? "bg-[#ececec] text-black" : "bg-[#1b1b1b]"} text-[16px] rounded-2xl hover:gap-3 duration-200`}>
                                 View
                                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" style={booleanValue ? { fill: '#000000' } : { fill: '#ffffff' }}>
                                     <path d="m13 3 3.293 3.293-7 7 1.414 1.414 7-7L21 11V3z"></path>

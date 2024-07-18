@@ -1,0 +1,85 @@
+[{
+        "id": 1,
+        "image": "/images/project1.png",
+        "images": [
+            { "src": "/images/project1.png" },
+            { "src": "/images/project2.png" },
+            { "src": "/images/project3.png" },
+            { "src": "/images/project4.png" },
+            { "src": "/images/project5.png" }
+        ],
+        "name": "Education platform",
+        "description": "An educational platform in Morocco for middle school students, I create that under the company X-Tech",
+        "link": "https://edu-ai-admin-stockfish.vercel.app/",
+        "icons": [
+            { "src": "/images/nxt.png", "alt": "NextJS", "delay": 0.5 },
+            { "src": "/images/react.svg", "alt": "React", "delay": 0.7 },
+            { "src": "/images/tailwind.svg", "alt": "Tailwind", "delay": 0.9 },
+            { "src": "/images/typescript.svg", "alt": "TypeScript", "delay": 0.11 },
+            { "src": "/images/spring.svg", "alt": "Spring", "delay": 0.13 },
+            { "src": "/images/js.svg", "alt": "JavaScript", "delay": 0.15 }
+        ]
+    },
+    {
+        "id": 2,
+        "image": "/images/vita.png",
+        "images": [
+            { "src": "/images/vita.png" },
+            { "src": "/images/vita2.png" },
+            { "src": "/images/vita3.png" },
+            { "src": "/images/vita4.png" },
+            { "src": "/images/vita5.png" }
+        ],
+        "name": "Viaparapharma Dashboard",
+        "description": "A dashboard for a multilingual Moroccan commercial website selling cosmetics and medicines, monitoring the number of orders, payment notifications, and other tasks, I create that under the company X-Tech",
+        "link": "http://dashboard-full-api-stockfish.vercel.app/",
+        "icons": [
+            { "src": "/images/react.svg", "alt": "React", "delay": 0.7 },
+            { "src": "/images/tailwind.svg", "alt": "Tailwind", "delay": 0.9 },
+            { "src": "/images/spring.svg", "alt": "Spring", "delay": 0.13 },
+            { "src": "/images/typescript.svg", "alt": "TypeScript", "delay": 0.11 },
+            { "src": "/images/js.svg", "alt": "JavaScript", "delay": 0.15 }
+        ]
+    },
+    {
+        "id": 3,
+        "image": "/images/ecommerce.png",
+        "images": [
+            { "src": "/images/ecommerce.png" },
+            { "src": "/images/ecommerce2.png" },
+            { "src": "/images/ecommerce3.png" },
+            { "src": "/images/ecommerce4.png" },
+            { "src": "/images/ecommerce5.png" }
+        ],
+        "name": "Ecommerce Website",
+        "description": "Ecommerce Website with react",
+        "link": "https://stockfish-ecommerce.vercel.app/",
+        "icons": [
+            { "src": "/images/react.svg", "alt": "React", "delay": 0.7 },
+            { "src": "/images/tailwind.svg", "alt": "Tailwind", "delay": 0.9 },
+            { "src": "/images/typescript.svg", "alt": "TypeScript", "delay": 0.11 },
+            { "src": "/images/js.svg", "alt": "JavaScript", "delay": 0.15 }
+        ]
+    },
+    {
+        "id": 4,
+        "image": "/images/zibri.png",
+        "images": [
+            { "src": "/images/zibri.png" },
+            { "src": "/images/zibri2.png" },
+            { "src": "/images/zibri3.png" },
+            { "src": "/images/zibri4.png" },
+            { "src": "/images/zibri5.png" }
+        ],
+        "name": "Zakah Dashboard",
+        "description": "Donations project in Saudi Arabia, i create that Freelancing",
+        "link": "http://dashboard-full-api-stockfish.vercel.app/",
+        "icons": [
+            { "src": "/images/react.svg", "alt": "React", "delay": 0.7 },
+            { "src": "/images/tailwind.svg", "alt": "Tailwind", "delay": 0.9 },
+            { "src": "/images/node.svg", "alt": "NodeJS", "delay": 0.13 },
+            { "src": "/images/typescript.svg", "alt": "TypeScript", "delay": 0.11 },
+            { "src": "/images/js.svg", "alt": "JavaScript", "delay": 0.15 }
+        ]
+    }
+]
