@@ -81,5 +81,26 @@
             { "src": "/images/typescript.svg", "alt": "TypeScript", "delay": 0.11 },
             { "src": "/images/js.svg", "alt": "JavaScript", "delay": 0.15 }
         ]
+    },
+    {
+        "id": 5,
+        "image": "/images/ieee.png",
+        "images": [
+            { "src": "/images/ieee.png" },
+            { "src": "/images/ieee2.png" },
+            { "src": "/images/ieee3.png" },
+            { "src": "/images/ieee4.png" },
+            { "src": "/images/ieee5.png" }
+        ],
+        "name": "IEEE Obour Website",
+        "description": "WebSite for IEEE Obour Community to manage the courses",
+        "link": "http://dashboard-full-api-stockfish.vercel.app/",
+        "icons": [
+            { "src": "/images/react.svg", "alt": "React", "delay": 0.7 },
+            { "src": "/images/tailwind.svg", "alt": "Tailwind", "delay": 0.9 },
+            { "src": "/images/node.svg", "alt": "NodeJS", "delay": 0.13 },
+            { "src": "/images/typescript.svg", "alt": "TypeScript", "delay": 0.11 },
+            { "src": "/images/js.svg", "alt": "JavaScript", "delay": 0.15 }
+        ]
     }
 ]
