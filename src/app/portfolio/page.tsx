@@ -140,7 +140,7 @@ const Portfolio = () => {
                 <div className={`project-one px-12 py-5 rounded-2xl ${booleanValue ? "bg-[#1313131f]" : "bg-[#131313]"}  flex items-center justify-between gap-4 w-full max-[1023px]:grid max-[1023px]:justify-center`}>
                     <div className="grid gap-3 w-full">
                         <h1 className={` ${booleanValue ? "text-black" : ""} font-semibold text-[25px] max-[1277px]:text-[20px] `}>Front-End Software Engineer</h1>
-                        <p className={` ${booleanValue ? "text-[#6738d3]" : "text-[#b292ff]"} text-[20px] max-[1277px]:text-[16px]`}>X-Tech</p>
+                        <Link href="https://expotech.online/our-team/" className={` ${booleanValue ? "text-[#6738d3]" : "text-[#b292ff]"} hover:underline underline-offset-2 flex items-center gap-2 text-[20px] max-[1277px]:text-[16px]`}>X-Tech <svg className={`${booleanValue ? "text-[#6738d3]" : "text-[#b292ff]"} h-6 w-6`}  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" /></svg></Link>
                         <div className="text-[#6e6e6e] flex items-center gap-2 text-[16px]">2024<div className="h-1.5 w-1.5 rounded-full bg-[#5fb9b0] me-2"></div><p className=" -translate-x-1.5">Current</p></div>
                     </div>
                     <div className="flex text-[20px] max-[1277px]:text-[16px]">
