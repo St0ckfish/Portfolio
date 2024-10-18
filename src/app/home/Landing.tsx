@@ -11,6 +11,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
+
 const categories = [
     {
         title: 'Front-end Engineer Design',
@@ -51,43 +52,44 @@ const categories = [
         height: '320px',
     },
 ];
+
 const Landing = () => {
     const textRef = useRef<HTMLHeadingElement[]>([]);
 
     const addToRefs = (el: HTMLHeadingElement) => {
-      if (el && !textRef.current.includes(el)) {
-        textRef.current.push(el);
-      }
+        if (el && !textRef.current.includes(el)) {
+            textRef.current.push(el);
+        }
     };
-  
+
     useEffect(() => {
-      textRef.current.forEach((el, index) => {
-        gsap.fromTo(
-          el,
-          { opacity: 0, y: 50, scale: 0.8, rotation: 10 },
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            rotation: 0,
-            duration: 1.5,
-            scrollTrigger: {
-              trigger: el,
-              start: "top 80%", // Adjust the start position as needed
-              end: "top 20%",   // Adjust the end position as needed
-              scrub: true,
-              toggleActions: "play none none reverse",
-            },
-            delay: index * 0.2,
-          }
-        );
-      });
+        textRef.current.forEach((el, index) => {
+            gsap.fromTo(
+                el,
+                { opacity: 0, y: 50, scale: 0.8, rotation: 10 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    rotation: 0,
+                    duration: 1.5,
+                    scrollTrigger: {
+                        trigger: el,
+                        start: "top 80%",
+                        end: "top 20%",
+                        scrub: true,
+                        toggleActions: "play none none reverse",
+                    },
+                    delay: index * 0.2,
+                }
+            );
+        });
     }, []);
-  
+
     const booleanValue = useSelector((state: RootState) => state.boolean.value);
     const [ref, inView] = useInView({
         triggerOnce: true,
-        threshold: 0.8, // Adjust this value to set how much of the element should be in view to trigger the animation
+        threshold: 0.8,
     });
 
     const [showButton, setShowButton] = useState(false);
@@ -112,11 +114,15 @@ const Landing = () => {
     const handleClick = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
+
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isDragging, setIsDragging] = useState(false);
     const [startX, setStartX] = useState(0);
     const [scrollLeft, setScrollLeft] = useState(0);
     const sliderRef = useRef<HTMLDivElement>(null);
+
+    // Added slideRefs to keep track of each slide
+    const slideRefs = useRef<HTMLDivElement[]>([]);
 
     const slides = [
         {
@@ -177,7 +183,7 @@ const Landing = () => {
         if (!isDragging || !sliderRef.current) return;
         e.preventDefault();
         const x = e.pageX - sliderRef.current.offsetLeft;
-        const walk = (x - startX) * 2; // Adjust scroll speed
+        const walk = (x - startX) * 2;
         sliderRef.current.scrollLeft = scrollLeft - walk;
     };
 
@@ -185,7 +191,10 @@ const Landing = () => {
         const slider = sliderRef.current;
         const handleScroll = () => {
             if (!slider) return;
-            const newIndex = Math.round(slider.scrollLeft / (slider.scrollWidth / slides.length));
+            const slideWidth = slideRefs.current[0]?.offsetWidth || 0;
+            const gap = 12; // gap-3 is 12px
+            const totalSlideWidth = slideWidth + gap;
+            const newIndex = Math.round(slider.scrollLeft / totalSlideWidth);
             setCurrentIndex(newIndex);
         };
 
@@ -203,6 +212,24 @@ const Landing = () => {
     useEffect(() => {
         controls.start({ opacity: 1, y: 0, transition: { duration: 1 } });
     }, [controls]);
+
+    // Function to scroll to a specific slide
+    const scrollToSlide = (index: number) => {
+        if (sliderRef.current && slideRefs.current[index]) {
+            const slide = slideRefs.current[index];
+            const slideLeft = slide.offsetLeft;
+            sliderRef.current.scrollTo({
+                left: slideLeft,
+                behavior: 'smooth'
+            });
+        }
+    };
+
+    // Handle click on a slide
+    const handleSlideClick = (index: number) => {
+        scrollToSlide(index);
+        setCurrentIndex(index);
+    };
 
     return (
         <motion.div className={` ${booleanValue ? "bg-white text-black" : "text-white"} grid w-full`} initial={{ opacity: 0, y: 20 }} animate={controls}>
@@ -261,6 +288,12 @@ const Landing = () => {
                             {slides.map((slide, index) => (
                                 <motion.div
                                     key={index}
+                                    ref={el => {
+                                        if (el) {
+                                            slideRefs.current[index] = el;
+                                        }
+                                    }}
+                                    onClick={() => handleSlideClick(index)}
                                     className={`px-5 py-3 h-[200px] w-[300px] grid items-center gap-3 rounded-3xl `}
                                     style={{ backgroundColor: slide.bgColor }}
                                     initial={{ opacity: 0 }}
@@ -280,7 +313,9 @@ const Landing = () => {
                                 key={index}
                                 className={`h-2 transition ease-in duration-300 rounded-full ${currentIndex === index && booleanValue == true ? 'bg-black w-8' : currentIndex === index && booleanValue == false ? 'bg-white w-8' : 'bg-gray-500 w-3'}`}
                                 style={{ cursor: 'pointer' }}
-                                onClick={() => setCurrentIndex(index)}
+                                onClick={() => {
+                                    handleSlideClick(index);
+                                }}
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1, transition: { duration: 0.5, delay: index * 0.2 } }}
                             ></motion.div>

@@ -50,6 +50,7 @@ const NavBar = () => {
         <div className={`flex w-full items-center justify-center z-50 top-5 fixed transition-transform duration-300 h-[60px] ${show ? 'translate-y-0' : '-translate-y-full'}`}>
             <nav className={`flex px-8 py-3 inset-x-0 bg-[#211F23]/40 shadow backdrop-blur-lg md:top-6 rounded-3xl ${booleanValue ? "text-black" : "text-white"}  gap-5`}>
                 <Link href="/" className={`${booleanValue ? "hover:text-[#613cb8]" : "hover:text-[#b292ff]" } ${isActive("/") && booleanValue  ? "text-[#613cb8]" : isActive("/") && booleanValue == false  ? "text-[#b292ff]" : ""}`}>Home</Link>
+                {/* <Link href="/blog" className={`${booleanValue ? "hover:text-[#613cb8]" : "hover:text-[#b292ff]" } ${isActive("/blog") && booleanValue  ? "text-[#613cb8]" : isActive("/blog") && booleanValue == false  ? "text-[#b292ff]" : ""}`}>Blog</Link> */}
                 <Link href="/portfolio" className={`${booleanValue ? "hover:text-[#613cb8]" : "hover:text-[#b292ff]" } ${isActive("/portfolio") && booleanValue  ? "text-[#613cb8]" : isActive("/portfolio") && booleanValue == false  ? "text-[#b292ff]" : ""}`}>Portfolio</Link>
                 <Link href="/certificates" className={`${booleanValue ? "hover:text-[#613cb8]" : "hover:text-[#b292ff]" } ${isActive("/certificates") && booleanValue  ? "text-[#613cb8]" : isActive("/certificates") && booleanValue == false  ? "text-[#b292ff]" : ""}`}>Certificates</Link>
                 <div className="sm:flex gap-2 ml-2 hidden">
