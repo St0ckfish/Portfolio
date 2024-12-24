@@ -17,16 +17,16 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <title>Mostapha Taha</title>
-        <meta name="description" content="Mostapha Taha" />
+        <meta name="description" content="During these 4 years as Front-End Software Engineer. My role has extended beyond coding to effective communication with various departments, to define new features and spearheading the development of new apps." />
         <link rel="icon" type="image/x-icon" href="/images/Stockfish.jpg" />
       </head>
       <body className="bg-[#0c0c0d] selection:text-black selection:bg-[#7feaff]">
 
-      <Providers>
-        {!isLoginPage && <NavBar />}
-        {children}
-        {!isLoginPage && <Footer />}
-      </Providers>
+        <Providers>
+          {!isLoginPage && <NavBar />}
+          {children}
+          {!isLoginPage && <Footer />}
+        </Providers>
 
       </body>
     </html>
