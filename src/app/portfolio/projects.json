@@ -102,5 +102,26 @@
             { "src": "/images/typescript.svg", "alt": "TypeScript", "delay": 0.11 },
             { "src": "/images/js.svg", "alt": "JavaScript", "delay": 0.15 }
         ]
+    },
+    {
+        "id": 6,
+        "image": "/images/oprem.png",
+        "images": [
+            { "src": "/images/oprem.png" },
+            { "src": "/images/oprem2.png" },
+            { "src": "/images/oprem3.png" },
+            { "src": "/images/oprem4.png" },
+            { "src": "/images/oprem5.png" }
+        ],
+        "name": "Opream Market Place",
+        "description": "Opream Marketplace is a comprehensive website offering courses, chat features, meeting tools, products, and social media integration.",
+        "link": "http://dashboard-full-api-stockfish.vercel.app/",
+        "icons": [
+            { "src": "/images/react.svg", "alt": "React", "delay": 0.7 },
+            { "src": "/images/tailwind.svg", "alt": "Tailwind", "delay": 0.9 },
+            { "src": "/images/spring.svg", "alt": "Spring", "delay": 0.13 },
+            { "src": "/images/typescript.svg", "alt": "TypeScript", "delay": 0.11 },
+            { "src": "/images/js.svg", "alt": "JavaScript", "delay": 0.15 }
+        ]
     }
 ]
