@@ -20,3 +20,36 @@
     scrollbar-width: none;
     /* Firefox */
 }
+
+@keyframes blob {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  33% {
+    transform: translate(-55%, -45%) scale(1.1);
+  }
+  66% {
+    transform: translate(-45%, -55%) scale(0.9);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@layer utilities {
+  .animate-[blob_7s_infinite] {
+    animation: blob 7s infinite;
+  }
+  
+  .animate-[blob_8s_infinite] {
+    animation: blob 8s infinite;
+  }
+  
+  .animate-[blob_9s_infinite] {
+    animation: blob 9s infinite reverse;
+  }
+  
+  .animate-[blob_11s_infinite] {
+    animation: blob 11s infinite alternate;
+  }
+}

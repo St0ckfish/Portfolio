@@ -123,5 +123,47 @@
             { "src": "/images/typescript.svg", "alt": "TypeScript", "delay": 0.11 },
             { "src": "/images/js.svg", "alt": "JavaScript", "delay": 0.15 }
         ]
+    },
+    {
+        "id": 7,
+        "image": "/images/qurancore.png",
+        "images": [
+            { "src": "/images/qurancore.png" },
+            { "src": "/images/qurancore2.png" },
+            { "src": "/images/qurancore3.png" },
+            { "src": "/images/qurancore4.png" },
+            { "src": "/images/qurancore5.png" }
+        ],
+        "name": "QuranCore",
+        "description": "QuranCore is a platform for Quranic studies, offering a variety of resources and tools for learners.",
+        "link": "http://dashboard-full-api-stockfish.vercel.app/",
+        "icons": [
+            { "src": "/images/Svelte.png", "alt": "Svelte", "delay": 0.7 },
+            { "src": "/images/tailwind.svg", "alt": "Tailwind", "delay": 0.9 },
+            { "src": "/images/spring.svg", "alt": "Java", "delay": 0.13 },
+            { "src": "/images/Python.png", "alt": "Python", "delay": 0.11 },
+            { "src": "/images/typescript.svg", "alt": "TypeScript", "delay": 0.17 }
+        ]
+    },
+    {
+        "id": 8,
+        "image": "/images/tools.png",
+        "images": [
+            { "src": "/images/tools.png" },
+            { "src": "/images/tools2.png" },
+            { "src": "/images/tools3.png" },
+            { "src": "/images/tools4.png" },
+            { "src": "/images/tools5.png" }
+        ],
+        "name": "Tools",
+        "description": "A collection of tools for various tasks and projects.",
+        "link": "http://dashboard-full-api-stockfish.vercel.app/",
+        "icons": [
+            { "src": "/images/Svelte.png", "alt": "Svelte", "delay": 0.7 },
+            { "src": "/images/tailwind.svg", "alt": "Tailwind", "delay": 0.9 },
+            { "src": "/images/spring.svg", "alt": "Java", "delay": 0.13 },
+            { "src": "/images/Python.png", "alt": "Python", "delay": 0.11 },
+            { "src": "/images/typescript.svg", "alt": "TypeScript", "delay": 0.17 }
+        ]
     }
 ]

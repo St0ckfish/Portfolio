@@ -13,6 +13,25 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      keyframes: {
+        blob: {
+          '0%': {
+            transform: 'translate(-50%, -50%) scale(1)',
+          },
+          '33%': {
+            transform: 'translate(-55%, -45%) scale(1.1)',
+          },
+          '66%': {
+            transform: 'translate(-45%, -55%) scale(0.9)',
+          },
+          '100%': {
+            transform: 'translate(-50%, -50%) scale(1)',
+          },
+        },
+      },
+      animation: {
+        'blob': 'blob var(--animation-duration, 7s) infinite',
+      },
       colors: {
         customScrollbar: "#131942", // Custom scrollbar color
         customScrollbarHover: "#554205", // Custom hover color
