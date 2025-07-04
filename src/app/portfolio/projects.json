@@ -115,7 +115,7 @@
         ],
         "name": "Opream Market Place",
         "description": "Opream Marketplace is a comprehensive website offering courses, chat features, meeting tools, products, and social media integration.",
-        "link": "http://dashboard-full-api-stockfish.vercel.app/",
+        "link": "https://organization-market-place.vercel.app/",
         "icons": [
             { "src": "/images/react.svg", "alt": "React", "delay": 0.7 },
             { "src": "/images/tailwind.svg", "alt": "Tailwind", "delay": 0.9 },
@@ -136,7 +136,7 @@
         ],
         "name": "QuranCore",
         "description": "QuranCore is a platform for Quranic studies, offering a variety of resources and tools for learners.",
-        "link": "http://dashboard-full-api-stockfish.vercel.app/",
+        "link": "https://qurancore.slk.is/",
         "icons": [
             { "src": "/images/Svelte.png", "alt": "Svelte", "delay": 0.7 },
             { "src": "/images/tailwind.svg", "alt": "Tailwind", "delay": 0.9 },
@@ -157,7 +157,7 @@
         ],
         "name": "Tools",
         "description": "A collection of tools for various tasks and projects.",
-        "link": "http://dashboard-full-api-stockfish.vercel.app/",
+        "link": "https://tools.slk.is/",
         "icons": [
             { "src": "/images/Svelte.png", "alt": "Svelte", "delay": 0.7 },
             { "src": "/images/tailwind.svg", "alt": "Tailwind", "delay": 0.9 },

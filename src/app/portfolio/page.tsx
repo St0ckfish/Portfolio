@@ -72,7 +72,7 @@ const Portfolio = () => {
                 </p>
             </div>
             <div className="flex justify-center items-center mt-8">
-                <a href="https://flowcv.com/resume/tuqcpijwb6" target="_blank" className={`px-3.5 py-2 z-40 ${booleanValue ? "bg-black text-white" : "bg-white"} rounded-2xl text-black font-semibold hover:-translate-y-1 hover:scale-110 duration-200`}>
+                <a href="/Mostapha_Taha.pdf" download='/Mostapha_Taha.pdf' target="_blank" className={`px-3.5 py-2 z-40 ${booleanValue ? "bg-black text-white" : "bg-white"} rounded-2xl text-black font-semibold hover:-translate-y-1 hover:scale-110 duration-200`}>
                     Download CV
                 </a>
             </div>
@@ -105,6 +105,10 @@ const Portfolio = () => {
                                     <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"></path>
                                 </svg>
                             </Link>
+                            {/* <Link href={`${project.link}`} className={`flex gap-2 items-center px-4 py-2 ${booleanValue ? "bg-[#ececec] text-black" : "bg-[#1b1b1b]"} text-[16px] rounded-2xl hover:gap-3 duration-200`}>
+                                Code | Live
+                                <svg className="h-6 w-6"  width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M9 19c-4.286 1.35-4.286-2.55-6-3m12 5v-3.5c0-1 .099-1.405-.5-2 2.791-.3 5.5-1.366 5.5-6.04a4.567 4.567 0 0 0 -1.333 -3.21 4.192 4.192 0 00-.08-3.227s-1.05-.3-3.476 1.267a12.334 12.334 0 0 0 -6.222 0C6.462 2.723 5.413 3.023 5.413 3.023a4.192 4.192 0 0 0 -.08 3.227A4.566 4.566 0 004 9.486c0 4.64 2.709 5.68 5.5 6.014-.591.589-.56 1.183-.5 2V21" /></svg>
+                            </Link> */}
                         </div>
                         <div className="flex flex-wrap px-3 py-4 gap-3 w-[350px] max-[480px]:w-[300px]">
                             {project.icons.map((icon, index) => {
