@@ -145,7 +145,7 @@ const Portfolio = () => {
                     <div className="grid gap-3 w-full">
                         <h1 className={` ${booleanValue ? "text-black" : ""} font-semibold text-[25px] max-[1277px]:text-[20px] `}>Front-End Software Engineer</h1>
                         <Link href="https://nuqayah.com/" className={` ${booleanValue ? "text-[#6738d3]" : "text-[#b292ff]"} hover:underline underline-offset-2 flex items-center gap-2 text-[20px] max-[1277px]:text-[16px]`}>Nuqayah <svg className={`${booleanValue ? "text-[#6738d3]" : "text-[#b292ff]"} h-6 w-6`}  width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" /></svg></Link>
-                        <div className="text-[#6e6e6e] flex items-center gap-2 text-[16px]">2025<div className="h-1.5 w-1.5 rounded-full bg-[#5fb9b0] me-2"></div><p className=" -translate-x-1.5">Current</p></div>
+                        <div className="text-[#6e6e6e] flex items-center gap-2 text-[16px]">2025<div className="h-1.5 w-1.5 rounded-full bg-[#b95f5f] me-2"></div><p className=" -translate-x-1.5">Jul</p></div>
                     </div>
                     <div className="flex text-[20px] max-[1277px]:text-[16px] w-full">
                         <p className="text-[#6e6e6e]">
