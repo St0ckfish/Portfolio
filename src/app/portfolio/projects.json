@@ -165,5 +165,28 @@
             { "src": "/images/Python.png", "alt": "Python", "delay": 0.11 },
             { "src": "/images/typescript.svg", "alt": "TypeScript", "delay": 0.17 }
         ]
+    },
+    {
+        "id": 9,
+        "image": "/images/rayan.png",
+        "images": [
+            { "src": "/images/rayan.png" },
+            { "src": "/images/rayan2.png" },
+            { "src": "/images/rayan3.png" },
+            { "src": "/images/rayan4.png" },
+            { "src": "/images/rayan5.png" },
+            { "src": "/images/rayan6.png" }
+        ],
+        "name": "Rayan",
+        "description": "Law Firm Portal: Built for a Saudi law office to manage cases, clients, and documents efficiently.",
+        "link": "https://rayan.slk.is/",
+        "icons": [
+            { "src": "/images/nxt.png", "alt": "NextJS", "delay": 0.5 },
+            { "src": "/images/react.svg", "alt": "React", "delay": 0.7 },
+            { "src": "/images/tailwind.svg", "alt": "Tailwind", "delay": 0.9 },
+            { "src": "/images/node.svg", "alt": "NodeJS", "delay": 0.13 },
+            { "src": "/images/typescript.svg", "alt": "TypeScript", "delay": 0.11 },
+            { "src": "/images/js.svg", "alt": "JavaScript", "delay": 0.15 }
+        ]
     }
 ]
