@@ -6,7 +6,12 @@
             { "src": "/images/project2.png" },
             { "src": "/images/project3.png" },
             { "src": "/images/project4.png" },
-            { "src": "/images/project5.png" }
+            { "src": "/images/project5.png" },
+            { "src": "/images/project6.png" },
+            { "src": "/images/project7.png" },
+            { "src": "/images/project8.png" },
+            { "src": "/images/project9.png" },
+            { "src": "/images/project10.png" }
         ],
         "name": "Education platform",
         "description": "An educational platform in Morocco for middle school students, I create that under the company X-Tech (5 Websites) Education platform with dedicated portals for admins, teachers, parents, and students, offering smart question generation and seamless student transportation tracking.",
