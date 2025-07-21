@@ -9,7 +9,7 @@
             { "src": "/images/project5.png" }
         ],
         "name": "Education platform",
-        "description": "An educational platform in Morocco for middle school students, I create that under the company X-Tech",
+        "description": "An educational platform in Morocco for middle school students, I create that under the company X-Tech (5 Websites) Education platform with dedicated portals for admins, teachers, parents, and students, offering smart question generation and seamless student transportation tracking.",
         "link": "https://edu-ai-admin-stockfish.vercel.app/",
         "icons": [
             { "src": "/images/nxt.png", "alt": "NextJS", "delay": 0.5 },
@@ -114,7 +114,7 @@
             { "src": "/images/oprem5.png" }
         ],
         "name": "Opream Market Place",
-        "description": "Opream Marketplace is a comprehensive website offering courses, chat features, meeting tools, products, and social media integration.",
+        "description": "Opream Marketplace is a comprehensive website offering courses, chat features, meeting tools, products, and social media integration. (3 Websites) Marketplace platform with dedicated portals for admins, individuals, and organizations, offering service listing, booking, and integrated online meetings.",
         "link": "https://organization-market-place.vercel.app/",
         "icons": [
             { "src": "/images/react.svg", "alt": "React", "delay": 0.7 },
