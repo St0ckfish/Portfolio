@@ -261,7 +261,7 @@ const Landing = () => {
                         Hi, I’m Mostapha
                     </motion.h1>
                     <motion.p className="text-[#6e6e6e] text-[24px] max-[690px]:text-[20px] max-[575px]:text-[14px] px-4" initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 1, delay: 1 } }}>
-                        During these <span className={`${booleanValue ? "text-black" : "text-[#ffffff]"} font-semibold`}>4 years </span> as <span className={`${booleanValue ? "text-black" : "text-[#ffffff]"} font-semibold`}>Front-End Software Engineer</span>. My <br /> role has extended beyond coding to effective <br /> communication with various departments, to define new <br /> features and spearheading the development of new apps.
+                        During these <span className={`${booleanValue ? "text-black" : "text-[#ffffff]"} font-semibold`}>4 years </span> as <span className={`${booleanValue ? "text-black" : "text-[#ffffff]"} font-semibold`}>Full-Stack Software Engineer</span>. My <br /> role has extended beyond coding to effective <br /> communication with various departments, to define new <br /> features and spearheading the development of new apps.
                     </motion.p>
                     <motion.div className="flex items-center max-[1240px]:justify-center flex-wrap gap-8 text-[18px]" initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 1, delay: 1.5 } }}>
                         <a href="/Mostapha_Taha.pdf" download='/Mostapha_Taha.pdf' target="_blank" className={`px-3.5 py-2  ${booleanValue ? "text-white bg-black" : "text-black bg-white"} rounded-2xl  font-semibold hover:-translate-y-1 hover:scale-110 duration-200`}>
