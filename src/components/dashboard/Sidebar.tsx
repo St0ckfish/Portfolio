@@ -37,7 +37,7 @@ const Sidebar = () => {
 
   const baseImageUrl = "https://portfolio-backend-rxwc.onrender.com";
   const fullImageUrl = user?.imageUrl 
-    ? (user.imageUrl.startsWith('http') ? user.imageUrl : `${baseImageUrl}${user.imageUrl}`)
+    ? `${baseImageUrl}${user.imageUrl}`
     : "/images/default-avatar.png";
 
   return (
