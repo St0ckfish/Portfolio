@@ -10,6 +10,7 @@ import { BookOpenText, DoorOpen, ChevronsLeft, ChevronsRight } from "lucide-reac
 const Sidebar = () => {
   const router = useRouter();
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [imageError, setImageError] = useState(false);
   
   const { data: user, isLoading, error } = useGetCurrentUserQuery();
   const [signOut, { isLoading: isSigningOut }] = useSignOutMutation();
@@ -36,8 +37,8 @@ const Sidebar = () => {
   }
 
   const baseImageUrl = "https://portfolio-backend-rxwc.onrender.com";
-  const fullImageUrl = user?.imageUrl 
-    ? `${baseImageUrl}${user.imageUrl}`
+  const fullImageUrl = user?.imageUrl && !imageError
+    ? (user.imageUrl.startsWith('http') ? user.imageUrl : `${baseImageUrl}${user.imageUrl}`)
     : "/images/default-avatar.png";
 
   return (
@@ -72,10 +73,7 @@ const Sidebar = () => {
                 width={isCollapsed ? 32 : 48}
                 height={isCollapsed ? 32 : 48}
                 className={`rounded-full object-cover ${isCollapsed ? "w-8 h-8" : "w-12 h-12"}`}
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.src = "/images/default-avatar.png";
-                }}
+                onError={() => setImageError(true)}
               />
             )}
             <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white"/>
