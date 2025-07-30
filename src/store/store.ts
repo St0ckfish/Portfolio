@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { authApi } from '@/store/api/authApi';
+import { authApi } from './api/authApi';
 import booleanSlice from '@/features/boolyanSlice';
 
 export const store = configureStore({

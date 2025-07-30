@@ -1,45 +1,27 @@
 "use client";
 
-import Footer from "@/components/footer";
-import NavBar from "@/components/navBar";
+import WithAuth from "@/components/dashboard/Auth/WithAuth";
+import Sidebar from "@/components/dashboard/Sidebar";
 import { usePathname } from "next/navigation";
 
-export default function EndUserLayout({
+export default function AdminLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const isLoginPage = pathname === "/admin";
+  const isAuthPage = pathname === "/admin/login" || pathname === "/admin/signup";
+  
   return (
-    <>
-      {/* <Providers> */}
-        <div className={` ${isLoginPage ? "mt-[0px]" : "mt-[50px]"} text-white`}>
-          {children}
-        </div>
-      {/* </Providers> */}
-    </>
+    <div className="bg-white min-h-screen">
+      <div className={`${isAuthPage ? "mt-[0px]" : ""} `}>
+        <WithAuth excludePaths={["/admin/login", "/admin/signup"]}>
+          {!isAuthPage && <Sidebar />}
+          <div className={`${!isAuthPage ? "ml-64" : ""}`}>
+            {children}
+          </div>
+        </WithAuth>
+      </div>
+    </div>
   );
 }
-
-// import type { Config } from "tailwindcss";
-
-// const config: Config = {
-//   content: [
-//     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-//     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-//     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-//   ],
-//   theme: {
-//     extend: {
-//       backgroundImage: {
-//         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-//         "gradient-conic":
-//           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-//       },
-//     },
-//   },
-//   plugins: [],
-// };
-// export default config;
-
