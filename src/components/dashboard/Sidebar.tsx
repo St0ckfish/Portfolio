@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,9 +11,18 @@ const Sidebar = () => {
   const router = useRouter();
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [imageError, setImageError] = useState(false);
+  const [failedUrls, setFailedUrls] = useState<Set<string>>(new Set());
   
   const { data: user, isLoading, error } = useGetCurrentUserQuery();
   const [signOut, { isLoading: isSigningOut }] = useSignOutMutation();
+
+  // Reset image error states when user data changes
+  useEffect(() => {
+    if (user?.imageUrl) {
+      setImageError(false);
+      setFailedUrls(new Set());
+    }
+  }, [user?.imageUrl]);
 
   const handleSignOut = async () => {
     try {
@@ -37,9 +46,41 @@ const Sidebar = () => {
   }
 
   const baseImageUrl = "https://portfolio-backend-rxwc.onrender.com";
-  const fullImageUrl = user?.imageUrl && !imageError
-    ? (user.imageUrl.startsWith('http') ? user.imageUrl : `${baseImageUrl}${user.imageUrl}`)
-    : "/images/default-avatar.png";
+  
+  // Improved image URL handling with better fallback logic
+  const getImageUrl = () => {
+    if (!user?.imageUrl || imageError) {
+      return "/images/Me.jpg"; // Using existing image as fallback
+    }
+    
+    let constructedUrl = "";
+    
+    // If it's already a full URL, use it as is
+    if (user.imageUrl.startsWith('http')) {
+      constructedUrl = user.imageUrl;
+    }
+    // If it starts with /uploads, prepend the base URL
+    else if (user.imageUrl.startsWith('/uploads')) {
+      constructedUrl = `${baseImageUrl}${user.imageUrl}`;
+    }
+    // If it doesn't start with /, add it
+    else if (!user.imageUrl.startsWith('/')) {
+      constructedUrl = `${baseImageUrl}/${user.imageUrl}`;
+    }
+    // Default case
+    else {
+      constructedUrl = `${baseImageUrl}${user.imageUrl}`;
+    }
+    
+    // If this URL has failed before, use fallback
+    if (failedUrls.has(constructedUrl)) {
+      return "/images/Me.jpg";
+    }
+    
+    return constructedUrl;
+  };
+  
+  const fullImageUrl = getImageUrl();
 
   return (
     <div className={`fixed left-0 top-0 h-full bg-white border-r border-gray-200 z-40 shadow-sm transition-all duration-300 ${
@@ -73,7 +114,13 @@ const Sidebar = () => {
                 width={isCollapsed ? 32 : 48}
                 height={isCollapsed ? 32 : 48}
                 className={`rounded-full object-cover ${isCollapsed ? "w-8 h-8" : "w-12 h-12"}`}
-                onError={() => setImageError(true)}
+                onError={() => {
+                  console.log('Image failed to load:', fullImageUrl);
+                  setFailedUrls(prev => new Set(prev).add(fullImageUrl));
+                  setImageError(true);
+                }}
+                unoptimized={fullImageUrl.startsWith('http')}
+                priority
               />
             )}
             <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white"/>
