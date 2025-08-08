@@ -149,7 +149,7 @@ export const authApi = createApi({
     updateBlog: builder.mutation<Blog, { id: string; formData: FormData }>({
       query: ({ id, formData }) => ({
         url: `/blogs/${id}`,
-        method: 'PUT',
+        method: 'PATCH',
         body: formData,
       }),
       invalidatesTags: ['Blog'],
