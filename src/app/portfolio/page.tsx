@@ -9,6 +9,7 @@ import { RootState } from "@/GlobalRedux/store";
 import { useSelector } from "react-redux";
 import { useInView } from 'react-intersection-observer';
 import projects from "./projects.json"
+import experiences from "./experiences.json"
 
 const cardVariants: Variants = {
     offscreen: {
@@ -140,34 +141,47 @@ const Portfolio = () => {
                     These are the Work Experience
                 </p>
             </div>
-            <div className="grid gap-4 px-[150px] max-[940px]:px-[30px] mt-[70px]  ">
-                <div className={`project-one px-12 py-5 rounded-2xl ${booleanValue ? "bg-[#1313131f]" : "bg-[#131313]"}  flex items-center justify-between gap-4 w-full max-[1023px]:grid max-[1023px]:justify-center`}>
-                    <div className="grid gap-3 w-full">
-                        <h1 className={` ${booleanValue ? "text-black" : ""} font-semibold text-[25px] max-[1277px]:text-[20px] `}>Front-End Software Engineer</h1>
-                        <Link href="https://nuqayah.com/" className={` ${booleanValue ? "text-[#6738d3]" : "text-[#b292ff]"} hover:underline underline-offset-2 flex items-center gap-2 text-[20px] max-[1277px]:text-[16px]`}>Nuqayah <svg className={`${booleanValue ? "text-[#6738d3]" : "text-[#b292ff]"} h-6 w-6`}  width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" /></svg></Link>
-                        <div className="text-[#6e6e6e] flex items-center gap-2 text-[16px]">2025<div className="h-1.5 w-1.5 rounded-full bg-[#b95f5f] me-2"></div><p className=" -translate-x-1.5">Jul</p></div>
-                    </div>
-                    <div className="flex text-[20px] max-[1277px]:text-[16px] w-full">
-                        <p className="text-[#6e6e6e]">
-                            I work as a <span className={`font-semibold ${booleanValue ? "text-black" : "text-[#ffffffbb]"} `}>Frontend Developer</span> using <span className={`font-semibold ${booleanValue ? "text-black" : "text-[#ffffffbb]"} `}>Svelte</span> on projects that serve Islam and Muslims, for example <span className={`font-semibold ${booleanValue ? "text-black" : "text-[#ffffffbb]"} `}>QuraanCore</span>, a tool for comparing Quran translations.
-                        </p>
+            {experiences.map((experience) => (
+                <div key={experience.id} className="grid gap-4 px-[150px] max-[940px]:px-[30px] mt-[70px]">
+                    <div className={`project-${experience.id} px-12 py-5 rounded-2xl ${booleanValue ? "bg-[#1313131f]" : "bg-[#131313]"}  flex items-center justify-between gap-4 w-full max-[1023px]:grid max-[1023px]:justify-center`}>
+                        <div className="grid gap-3 w-full">
+                            <h1 className={` ${booleanValue ? "text-black" : ""} font-semibold text-[25px] max-[1277px]:text-[20px] `}>{experience.title}</h1>
+                            {experience.companyUrl ? (
+                                <Link href={experience.companyUrl} className={` ${booleanValue ? "text-[#6738d3]" : "text-[#b292ff]"} hover:underline underline-offset-2 flex items-center gap-2 text-[20px] max-[1277px]:text-[16px]`}>
+                                    {experience.company} 
+                                    <svg className={`${booleanValue ? "text-[#6738d3]" : "text-[#b292ff]"} h-6 w-6`}  width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z"/>
+                                        <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+                                        <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l-.5 -.5" />
+                                    </svg>
+                                </Link>
+                            ) : (
+                                <p className={` ${booleanValue ? "text-[#6738d3]" : "text-[#b292ff]"} text-[20px] max-[1277px]:text-[16px]`}>
+                                    {experience.company}
+                                </p>
+                            )}
+                            <div className="text-[#6e6e6e] flex items-center gap-2 text-[16px]">
+                                {experience.startDate}
+                                {!experience.current ? (
+                                    <div className="h-1.5 w-1.5 rounded-full bg-[#b95f5f] me-2"></div>
+                                ) :
+                                        <div className="h-1.5 w-1.5 rounded-full bg-[#5fb9b0] me-2 shadow-[0_0_12px_4px_#5fb9b0] animate-pulse" />
+                                    }
+                                <p className=" -translate-x-1.5">{experience.endDate}</p>
+                            </div>
+                        </div>
+                        <div className="flex text-[20px] max-[1277px]:text-[16px] w-full">
+                            <p className="text-[#6e6e6e]" dangerouslySetInnerHTML={{
+                                __html: experience.description.replace(
+                                    /(Frontend Developer|Svelte|QuraanCore|Front-End Team|Education Platform|Dashboard|full-stack developer|e-commerce platforms|educational tools|database design|API development|user interface implementation)/g,
+                                    `<span class="font-semibold ${booleanValue ? 'text-black' : 'text-[#ffffffbb]'}">$1</span>`
+                                )
+                            }}>
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className="grid gap-4 px-[150px] max-[940px]:px-[30px] mt-[70px]  ">
-                <div className={`project-two px-12 py-5 rounded-2xl ${booleanValue ? "bg-[#1313131f]" : "bg-[#131313]"}  flex items-center justify-between gap-4 w-full max-[1023px]:grid max-[1023px]:justify-center`}>
-                    <div className="grid gap-3 w-full">
-                        <h1 className={` ${booleanValue ? "text-black" : ""} font-semibold text-[25px] max-[1277px]:text-[20px] `}>Front-End Software Engineer</h1>
-                        <Link href="https://expotech.online/our-team/" className={` ${booleanValue ? "text-[#6738d3]" : "text-[#b292ff]"} hover:underline underline-offset-2 flex items-center gap-2 text-[20px] max-[1277px]:text-[16px]`}>X-Tech <svg className={`${booleanValue ? "text-[#6738d3]" : "text-[#b292ff]"} h-6 w-6`}  width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" /></svg></Link>
-                        <div className="text-[#6e6e6e] flex items-center gap-2 text-[16px]">2024<div className="h-1.5 w-1.5 rounded-full bg-[#b95f5f] me-2"></div><p className=" -translate-x-1.5">2025</p></div>
-                    </div>
-                    <div className="flex text-[20px] max-[1277px]:text-[16px]">
-                        <p className="text-[#6e6e6e]">
-                            I was the leader of <span className={`font-semibold ${booleanValue ? "text-black" : "text-[#ffffffbb]"} `}>Front-End Team</span> in the company, and i undertool many projects, including the <span className={`font-semibold ${booleanValue ? "text-black" : "text-[#ffffffbb]"} `}>Education Platform</span> and <span className={`font-semibold ${booleanValue ? "text-black" : "text-[#ffffffbb]"} `}>Dashboard</span> to manage a huge commercial site in Morocco and other  projects
-                        </p>
-                    </div>
-                </div>
-            </div>
+            ))}
         </motion.div>
     );
 }

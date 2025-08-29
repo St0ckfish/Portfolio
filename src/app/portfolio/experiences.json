@@ -1,0 +1,31 @@
+[
+    {
+        "id": 1,
+        "title": "Front-End Software Engineer",
+        "company": "Nuqayah",
+        "companyUrl": "https://nuqayah.com/",
+        "startDate": "2025",
+        "endDate": "Jul",
+        "current": false,
+        "description": "I work as a Frontend Developer using Svelte on projects that serve Islam and Muslims, for example QuraanCore, a tool for comparing Quran translations."
+    },
+    {
+        "id": 2,
+        "title": "Front-End Software Engineer",
+        "company": "X-Tech",
+        "companyUrl": "https://expotech.online/our-team/",
+        "startDate": "2024",
+        "endDate": "2025",
+        "current": false,
+        "description": "I was the leader of Front-End Team in the company, and i undertook many projects, including the Education Platform and Dashboard to manage a huge commercial site in Morocco and other projects"
+    },
+    {
+        "id": 3,
+        "title": "Full-Stack Software Engineer",
+        "company": "Freelancer",
+        "companyUrl": null,
+        "startDate": "2023",
+        "current": true,
+        "description": "Worked as a freelance full-stack developer, building complete web applications using modern technologies. Developed projects ranging from e-commerce platforms to educational tools, handling both frontend and backend development including database design, API development, and user interface implementation."
+    }
+]

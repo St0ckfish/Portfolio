@@ -145,10 +145,7 @@ const BlogDetailPage = () => {
   if (isLoading) {
     return (
       <div className={`min-h-screen transition-colors duration-300 ${booleanValue ? "bg-white" : "bg-[#0c0c0d]"}`}>
-        {/* Back button skeleton */}
-        <div className="fixed top-6 left-6 z-50">
-          <div className={`w-20 h-10 rounded-full ${booleanValue ? "bg-gray-200" : "bg-gray-700"} animate-pulse`}></div>
-        </div>
+
 
         {/* Hero image skeleton */}
         <div className={`relative h-[60vh] ${booleanValue ? "bg-gray-200" : "bg-gray-700"} animate-pulse`}>
