@@ -47,21 +47,47 @@
         ]
     },
     {
-        "id": 3,
-        "image": "/images/ecommerce.png",
+        "id": 9,
+        "image": "/images/rayan.png",
         "images": [
-            { "src": "/images/ecommerce.png" },
-            { "src": "/images/ecommerce2.png" },
-            { "src": "/images/ecommerce3.png" },
-            { "src": "/images/ecommerce4.png" },
-            { "src": "/images/ecommerce5.png" }
+            { "src": "/images/rayan.png" },
+            { "src": "/images/rayan2.png" },
+            { "src": "/images/rayan3.png" },
+            { "src": "/images/rayan4.png" },
+            { "src": "/images/rayan5.png" },
+            { "src": "/images/rayan6.png" }
         ],
-        "name": "Ecommerce Website",
-        "description": "Ecommerce Website with react",
-        "link": "https://stockfish-ecommerce.vercel.app/",
+        "name": "Rayan",
+        "description": "Law Firm Portal: Built for a Saudi law office to manage cases, clients, and documents efficiently.",
+        "link": "https://rayan.slk.is/",
+        "icons": [
+            { "src": "/images/nxt.png", "alt": "NextJS", "delay": 0.5 },
+            { "src": "/images/react.svg", "alt": "React", "delay": 0.7 },
+            { "src": "/images/tailwind.svg", "alt": "Tailwind", "delay": 0.9 },
+            { "src": "/images/node.svg", "alt": "NodeJS", "delay": 0.13 },
+            { "src": "/images/typescript.svg", "alt": "TypeScript", "delay": 0.11 },
+            { "src": "/images/js.svg", "alt": "JavaScript", "delay": 0.15 }
+        ]
+    },
+    {
+        "id": 10,
+        "image": "/images/delivrik1.png",
+        "images": [
+            { "src": "/images/delivrik1.png" },
+            { "src": "/images/delivrik2.png" },
+            { "src": "/images/delivrik3.png" },
+            { "src": "/images/delivrik4.png" },
+            { "src": "/images/delivrik5.png" },
+            { "src": "/images/delivrik6.png" },
+            { "src": "/images/delivrik7.png" }
+        ],
+        "name": "Deliverik",
+        "description": "Delivery Management System: A real-time SaaS restaurant management system that displays orders instantly and efficiently manages delivery, schedules, and holidays.",
+        "link": "https://deliverik.slk.is/",
         "icons": [
             { "src": "/images/react.svg", "alt": "React", "delay": 0.7 },
             { "src": "/images/tailwind.svg", "alt": "Tailwind", "delay": 0.9 },
+            { "src": "/images/Python.png", "alt": "Python", "delay": 0.13 },
             { "src": "/images/typescript.svg", "alt": "TypeScript", "delay": 0.11 },
             { "src": "/images/js.svg", "alt": "JavaScript", "delay": 0.15 }
         ]
@@ -172,24 +198,21 @@
         ]
     },
     {
-        "id": 9,
-        "image": "/images/rayan.png",
+        "id": 3,
+        "image": "/images/ecommerce.png",
         "images": [
-            { "src": "/images/rayan.png" },
-            { "src": "/images/rayan2.png" },
-            { "src": "/images/rayan3.png" },
-            { "src": "/images/rayan4.png" },
-            { "src": "/images/rayan5.png" },
-            { "src": "/images/rayan6.png" }
+            { "src": "/images/ecommerce.png" },
+            { "src": "/images/ecommerce2.png" },
+            { "src": "/images/ecommerce3.png" },
+            { "src": "/images/ecommerce4.png" },
+            { "src": "/images/ecommerce5.png" }
         ],
-        "name": "Rayan",
-        "description": "Law Firm Portal: Built for a Saudi law office to manage cases, clients, and documents efficiently.",
-        "link": "https://rayan.slk.is/",
+        "name": "Ecommerce Website",
+        "description": "Ecommerce Website with react",
+        "link": "https://stockfish-ecommerce.vercel.app/",
         "icons": [
-            { "src": "/images/nxt.png", "alt": "NextJS", "delay": 0.5 },
             { "src": "/images/react.svg", "alt": "React", "delay": 0.7 },
             { "src": "/images/tailwind.svg", "alt": "Tailwind", "delay": 0.9 },
-            { "src": "/images/node.svg", "alt": "NodeJS", "delay": 0.13 },
             { "src": "/images/typescript.svg", "alt": "TypeScript", "delay": 0.11 },
             { "src": "/images/js.svg", "alt": "JavaScript", "delay": 0.15 }
         ]
