@@ -45,7 +45,6 @@ const Certificates = () => {
             link: "/",
             variant: "left"
         },
-        // Add more certificates here
     ];
 
     const certificateVariant = (direction: string) => ({

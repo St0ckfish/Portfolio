@@ -123,7 +123,6 @@ const Landing = () => {
     const [scrollLeft, setScrollLeft] = useState(0);
     const sliderRef = useRef<HTMLDivElement>(null);
 
-    // Added slideRefs to keep track of each slide
     const slideRefs = useRef<HTMLDivElement[]>([]);
 
     const slides = [

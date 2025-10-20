@@ -2,6 +2,11 @@
 import "./globals.css";
 import NavBar from "@/components/navBar";
 import Footer from "@/components/footer";
+import AnimatedBackground from "@/components/AnimatedBackground";
+import SmoothScroll from "@/components/SmoothScroll";
+import MouseFollower from "@/components/MouseFollower";
+import ScrollShapes from "@/components/ScrollShapes";
+import PageLoader from "@/components/PageLoader";
 import { usePathname } from "next/navigation";
 import { Providers } from "@/GlobalRedux/provider";
 
@@ -23,9 +28,19 @@ export default function RootLayout({
       <body className="bg-[#0c0c0d] selection:text-black selection:bg-[#7feaff]">
 
         <Providers>
-          {!isLoginPage && <NavBar />}
-          {children}
-          {!isLoginPage && <Footer />}
+          {/* <PageLoader /> */}
+          <SmoothScroll>
+            {!isLoginPage && (
+              <>
+                <AnimatedBackground />
+                <ScrollShapes />
+                <MouseFollower />
+              </>
+            )}
+            {!isLoginPage && <NavBar />}
+            {children}
+            {!isLoginPage && <Footer />}
+          </SmoothScroll>
         </Providers>
 
       </body>

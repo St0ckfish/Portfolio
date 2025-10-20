@@ -2,6 +2,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@media (min-width: 1024px) {
+  * {
+    cursor: none !important;
+  }
+}
+
 .svg-icon {
     fill: rgba(0, 0, 0, 1);
     transition: fill 0.3s ease;
@@ -37,6 +44,26 @@
   }
 }
 
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    opacity: 0.5;
+    filter: blur(20px);
+  }
+  50% {
+    opacity: 0.8;
+    filter: blur(30px);
+  }
+}
+
 @layer utilities {
   .animate-[blob_7s_infinite] {
     animation: blob 7s infinite;
@@ -52,5 +79,21 @@
   
   .animate-[blob_11s_infinite] {
     animation: blob 11s infinite alternate;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 4s ease-in-out infinite;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#b292ff] via-[#7feaff] to-[#b292ff];
+  }
+
+  .text-gradient-dark {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#6738d3] via-[#4520a8] to-[#8e5edb];
   }
 }

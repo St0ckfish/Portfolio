@@ -46,7 +46,6 @@ const BlogDetailPage = () => {
         console.log('Error sharing:', error);
       }
     } else {
-      // Fallback: copy to clipboard
       navigator.clipboard.writeText(window.location.href);
       alert('Link copied to clipboard!');
     }
@@ -54,7 +53,6 @@ const BlogDetailPage = () => {
 
   const baseImageUrl = "https://portfolio-backend-rxwc.onrender.com";
 
-  // Generate meta tags for the blog
   const generateMetaTags = () => {
     if (!blog) return null;
 
@@ -65,7 +63,6 @@ const BlogDetailPage = () => {
 
     return (
       <Head>
-        {/* Basic Meta Tags */}
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta name="keywords" content={blog.tags ? blog.tags.join(', ') : ''} />
@@ -74,7 +71,6 @@ const BlogDetailPage = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="canonical" href={url} />
 
-        {/* Open Graph / Facebook */}
         <meta property="og:type" content="article" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
@@ -88,7 +84,6 @@ const BlogDetailPage = () => {
           <meta key={index} property="article:tag" content={tag} />
         ))}
 
-        {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@St0ckfish" />
         <meta name="twitter:creator" content="@St0ckfish" />
@@ -96,13 +91,11 @@ const BlogDetailPage = () => {
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={imageUrl} />
 
-        {/* Additional SEO Meta Tags */}
         <meta name="language" content="English" />
         <meta name="revisit-after" content="7 days" />
         <meta name="distribution" content="global" />
         <meta name="rating" content="general" />
 
-        {/* Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -147,47 +140,39 @@ const BlogDetailPage = () => {
       <div className={`min-h-screen transition-colors duration-300 ${booleanValue ? "bg-white" : "bg-[#0c0c0d]"}`}>
 
 
-        {/* Hero image skeleton */}
         <div className={`relative h-[60vh] ${booleanValue ? "bg-gray-200" : "bg-gray-700"} animate-pulse`}>
           <div className="absolute top-32 left-8">
             <div className={`w-20 h-8 rounded-full ${booleanValue ? "bg-gray-300" : "bg-gray-600"} animate-pulse`}></div>
           </div>
         </div>
 
-        {/* Content skeleton */}
         <div className="relative -mt-32 z-10">
           <div className="max-w-4xl mx-auto px-6">
-            {/* Article header skeleton */}
             <div className={`rounded-2xl p-8 mb-8 ${
               booleanValue 
                 ? "bg-white shadow-2xl border border-gray-200" 
                 : "bg-[#1a1a1a] shadow-2xl border border-gray-800"
             }`}>
-              {/* Title skeleton */}
               <div className={`h-12 ${booleanValue ? "bg-gray-200" : "bg-gray-700"} rounded-lg mb-6 animate-pulse`}></div>
               
-              {/* Meta info skeleton */}
               <div className="flex gap-6 mb-6">
                 <div className={`h-4 w-24 ${booleanValue ? "bg-gray-200" : "bg-gray-700"} rounded animate-pulse`}></div>
                 <div className={`h-4 w-20 ${booleanValue ? "bg-gray-200" : "bg-gray-700"} rounded animate-pulse`}></div>
                 <div className={`h-4 w-16 ${booleanValue ? "bg-gray-200" : "bg-gray-700"} rounded animate-pulse`}></div>
               </div>
 
-              {/* Tags skeleton */}
               <div className="flex gap-2 mb-6">
                 <div className={`h-6 w-16 ${booleanValue ? "bg-gray-200" : "bg-gray-700"} rounded-full animate-pulse`}></div>
                 <div className={`h-6 w-20 ${booleanValue ? "bg-gray-200" : "bg-gray-700"} rounded-full animate-pulse`}></div>
                 <div className={`h-6 w-18 ${booleanValue ? "bg-gray-200" : "bg-gray-700"} rounded-full animate-pulse`}></div>
               </div>
 
-              {/* Action buttons skeleton */}
               <div className="flex gap-4">
                 <div className={`h-10 w-20 ${booleanValue ? "bg-gray-200" : "bg-gray-700"} rounded-full animate-pulse`}></div>
                 <div className={`h-10 w-20 ${booleanValue ? "bg-gray-200" : "bg-gray-700"} rounded-full animate-pulse`}></div>
               </div>
             </div>
 
-            {/* Article content skeleton */}
             <div className={`rounded-2xl p-8 mb-8 ${
               booleanValue 
                 ? "bg-white shadow-2xl border border-gray-200" 
@@ -207,14 +192,12 @@ const BlogDetailPage = () => {
               </div>
             </div>
 
-            {/* Navigation skeleton */}
             <div className="pb-20">
               <div className={`h-12 w-40 ${booleanValue ? "bg-gray-200" : "bg-gray-700"} rounded-full animate-pulse`}></div>
             </div>
           </div>
         </div>
 
-        {/* Animated background blobs */}
         <div className="fixed inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-[#b292ff] to-[#7feaff] rounded-full opacity-5 blur-3xl animate-[blob_7s_infinite]"></div>
           <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-gradient-to-r from-[#7feaff] to-[#b292ff] rounded-full opacity-5 blur-3xl animate-[blob_8s_infinite]"></div>
@@ -248,7 +231,6 @@ const BlogDetailPage = () => {
 
   return (
     <>
-      {/* Dynamic Meta Tags */}
       {generateMetaTags()}
       
       <motion.div 
@@ -258,7 +240,6 @@ const BlogDetailPage = () => {
         transition={{ duration: 0.8 }}
       >
 
-      {/* Hero Image */}
       <div className="relative h-[60vh] overflow-hidden">
         <Image
           src={blog.imageUrl.startsWith('http') ? blog.imageUrl : `${baseImageUrl}${blog.imageUrl}`}
@@ -269,7 +250,6 @@ const BlogDetailPage = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
         
-        {/* Category badge */}
         <div className="absolute top-32 left-8">
           <span className="bg-[#b292ff] text-black px-4 py-2 rounded-full text-sm font-medium">
             {blog.category}
@@ -277,10 +257,8 @@ const BlogDetailPage = () => {
         </div>
       </div>
 
-      {/* Content */}
       <div className="relative -mt-32 z-10">
         <div className="max-w-4xl mx-auto px-6">
-          {/* Article header */}
           <motion.div 
             className={`rounded-2xl p-8 mb-8 ${
               booleanValue 
@@ -295,7 +273,6 @@ const BlogDetailPage = () => {
               {blog.title}
             </h1>
 
-            {/* Meta info */}
             <div className={`flex flex-wrap items-center gap-6 mb-6 text-sm ${
               booleanValue ? "text-gray-600" : "text-gray-400"
             }`}>
@@ -315,7 +292,6 @@ const BlogDetailPage = () => {
               )}
             </div>
 
-            {/* Tags */}
             {blog.tags && blog.tags.length > 0 && (
               <div className="flex flex-wrap gap-2 mb-6">
                 {blog.tags.map((tag, index) => (
@@ -333,7 +309,6 @@ const BlogDetailPage = () => {
               </div>
             )}
 
-            {/* Action buttons */}
             <div className="flex items-center gap-4">
               <motion.button
                 onClick={() => setIsLiked(!isLiked)}
@@ -367,7 +342,6 @@ const BlogDetailPage = () => {
             </div>
           </motion.div>
 
-          {/* Article content */}
           <motion.div 
             className={`rounded-2xl p-8 mb-8 ${
               booleanValue 
@@ -450,7 +424,6 @@ const BlogDetailPage = () => {
             </div>
           </motion.div>
 
-          {/* Navigation */}
           <motion.div 
             className="pb-20"
             initial={{ opacity: 0, y: 50 }}
@@ -472,7 +445,6 @@ const BlogDetailPage = () => {
         </div>
       </div>
 
-      {/* Animated background blobs */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-[#b292ff] to-[#7feaff] rounded-full opacity-5 blur-3xl animate-[blob_7s_infinite]"></div>
         <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-gradient-to-r from-[#7feaff] to-[#b292ff] rounded-full opacity-5 blur-3xl animate-[blob_8s_infinite]"></div>
